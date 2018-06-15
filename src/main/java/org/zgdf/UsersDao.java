@@ -1,7 +1,5 @@
 package org.zgdf;
 
-import org.zgdf.Users;
-
 public class UsersDao {
     
     public Users getUser(String u, String p){
