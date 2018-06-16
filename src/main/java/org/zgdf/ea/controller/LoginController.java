@@ -23,18 +23,20 @@ public class LoginController extends HttpServlet {
         UsersDao dao = new UsersDao();
         Users u = dao.getUser(username, password);
 
+        HttpSession session = request.getSession();
+        
         if (u.getUserName() != null) {
 //            request.setAttribute("user", u);
 
-            HttpSession session = request.getSession();
             session.setAttribute("user", u.getUserName());
 
 //            RequestDispatcher rd = request.getRequestDispatcher("welcome.jsp");
 //            rd.forward(request, response);
-            response.sendRedirect("welcome.jsp");
+            response.sendRedirect("home.jsp");
         } else {
 //            RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
 //            rd.forward(request, response);
+            session.setAttribute("Hiba", "Nem megfelelő felhasználónév vagy jelszó!");
             response.sendRedirect("index.jsp");
         }
 

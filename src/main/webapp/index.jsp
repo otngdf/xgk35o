@@ -3,17 +3,29 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>XGK35O</title>
+        <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">-->
+        <link rel="stylesheet" href="webjars/bootstrap/4.1.1/css/bootstrap.min.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <title>Belépés</title>
     </head>
     <body>
-    <form action="LoginController" method="post">
         
-        Felasználónév:<input type="text" name="uname" required>
         <br/>
-        Jelszó:<input type="password" name="pwd" required>
+        <center>
+        <form action="LoginController" method="post">
+        <h2>Munkaidő nyilvántartó rendszer</h2>
         <br/>
-        <input type="submit" value="Belépés">
+        <input type="text" size="15" maxlength="12" placeholder="Felhasználónév" name="uname" required autofocus="" >
+        <br/>
+        <input type="password" size="15" maxlength="12" placeholder="Jelszó" name="pwd" required >
+        <br/>
+        <br/>
+        <input type="submit" value="Belépés" />
+                
+        </form>
         
-    </form>
+        <font color="red"> ${Hiba} </font>
+        </center>
+        
     </body>
 </html>
