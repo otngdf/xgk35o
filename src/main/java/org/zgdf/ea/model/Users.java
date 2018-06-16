@@ -1,4 +1,4 @@
-package org.zgdf;
+package org.zgdf.ea.model;
 
 public class Users {
     private String userName;
