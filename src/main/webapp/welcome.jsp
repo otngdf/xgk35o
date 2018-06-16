@@ -4,18 +4,29 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Welcome Page</title>
     </head>
     <body>
         <h1>Hello World!</h1>
-        welcome
-        
-        <%
-            Users u = (Users)request.getAttribute("user");
-            
-               out.print(u);
 
-            %>
-        
+        <%
+            response.setHeader("Cache-control", "no-cache, no-store, must-revalidate");
+            
+            if (session.getAttribute("user") == null) {
+                response.sendRedirect("index.jsp");
+            }
+            //Users u = (Users) session.getAttribute("user");
+            //out.print(u.getUserName());    
+        %>
+
+        Üdvözöllek ${user}
+
+        <form action="LogoutController" >
+            
+            <input type="submit" value="Kilépés">
+
+        </form>
+
+
     </body>
 </html>
