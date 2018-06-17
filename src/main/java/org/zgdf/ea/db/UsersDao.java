@@ -16,11 +16,12 @@ public class UsersDao {
             Connection con = DriverManager.getConnection("jdbc:mariadb://192.168.1.120:3306/appDB?user=root&password=root");
 
             Statement st = con.createStatement();
-            ResultSet rs = st.executeQuery("select * from USERS where User = '" + u + "' and Password = '" + p + "'");
+            ResultSet rs = st.executeQuery("select * from USERS where Uname = '" + u + "' and Upass = '" + p + "'");
 
             if (rs.next()) {
-                user.setUserName(rs.getString("User"));
-                user.setPassword(rs.getString("Password"));
+                user.setUserID(rs.getInt("Uid"));
+                user.setUserName(rs.getString("Uname"));
+                user.setFullName(rs.getString("Fullname"));
 //                System.out.println("a user: " + rs.getString("user"));
             }
             con.close();

@@ -4,6 +4,4 @@
     if (session.getAttribute("user") == null) {
         response.sendRedirect("index.jsp");
     }
-    //Users u = (Users) session.getAttribute("user");
-    //out.print(u.getUserName());    
 %>

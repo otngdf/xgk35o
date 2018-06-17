@@ -8,6 +8,14 @@
         <servlet-name>LogoutController</servlet-name>
         <servlet-class>org.zgdf.ea.controller.LogoutController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CustomersController</servlet-name>
+        <servlet-class>org.zgdf.ea.controller.CustomersController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ActivitiesController</servlet-name>
+        <servlet-class>org.zgdf.ea.controller.ActivitiesController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/LoginController</url-pattern>
@@ -15,6 +23,14 @@
     <servlet-mapping>
         <servlet-name>LogoutController</servlet-name>
         <url-pattern>/LogoutController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CustomersController</servlet-name>
+        <url-pattern>/CustomersController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ActivitiesController</servlet-name>
+        <url-pattern>/ActivitiesController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

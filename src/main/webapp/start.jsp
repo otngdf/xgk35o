@@ -1,16 +1,16 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 <!DOCTYPE html>
 <html>
     <head>
 
-        <script src="webjars/jquery/3.0.0/jquery.min.js"></script>
-        <script src="webjars/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-        <script src="webjars/popper/js/1.14.1/popper.min.js"></script>
+        <%@ include file="/WEB-INF/jspf/head.jspf" %>
 
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">-->
-        <link rel="stylesheet" href="webjars/bootstrap/4.1.1/css/bootstrap.min.css">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            .customWidth {
+                width: 200px;
+            }
+        </style>
 
         <title>Start</title>
 
@@ -23,9 +23,35 @@
         <%@ include file="/WEB-INF/jspf/navbar.jspf" %>
 
         <div class="container">
-            <h3>Hello World!</h3>
-            <p>Üdvözöllek ${user}! Kezdheted a munkát...</p>
-        </div>    
+            <h3>${fullname}</h3>
+            <p>Kezdheted a munkát...</p>
 
-    </body>
+            <form action="ActivitiesController" >
+
+                <b>Helyszín</b>
+                <br/>
+                <select name="customer" class="customWidth">
+                    <c:forEach items="${listCustomers}" var="customers">
+                        <option value="${customers.customerID}">${customers.cName}</option>
+                    </c:forEach>
+                </select>
+                <br/>
+                
+                <b>Dátum</b>
+                <br/>
+                <input type="datetime-local" name="date" required class="customWidth">
+                <br/>
+                
+                <b>Tevékenység</b>
+                <br/>
+
+                <textarea name="activity" placeholder="Megjegyzés" rows="4" class="customWidth"></textarea>
+
+                <br/>
+                <button type="submit" class="btn">Submit</button>
+        </div>
+
+    </form>
+
+</body>
 </html>

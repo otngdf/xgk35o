@@ -1,8 +1,6 @@
 package org.zgdf.ea.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -24,11 +22,14 @@ public class LoginController extends HttpServlet {
         Users u = dao.getUser(username, password);
 
         HttpSession session = request.getSession();
-        
+
         if (u.getUserName() != null) {
 //            request.setAttribute("user", u);
 
+            session.setAttribute("userid", u.getUserID());
             session.setAttribute("user", u.getUserName());
+            session.setAttribute("role", u.getUserRole());
+            session.setAttribute("fullname", u.getFullName());
 
 //            RequestDispatcher rd = request.getRequestDispatcher("welcome.jsp");
 //            rd.forward(request, response);
