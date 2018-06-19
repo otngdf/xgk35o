@@ -24,8 +24,8 @@ public class CustomersController extends HttpServlet {
         
         request.setAttribute("listCustomers", listCustomers);
         
-        if(!"admin".equals((String)session.getAttribute("role"))){
-            request.getRequestDispatcher("admin.jsp").forward(request, response);
+        if("admin".equals((String)session.getAttribute("role"))){
+            request.getRequestDispatcher("customers.jsp").forward(request, response);
         }else{
             request.getRequestDispatcher("start.jsp").forward(request, response);
         }

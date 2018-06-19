@@ -2,31 +2,32 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="webjars/bootstrap/4.1.1/css/bootstrap.min.css">
-        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+        <%@ include file="/WEB-INF/jspf/head.jspf" %>
+        
         <title>Belépés</title>
     </head>
     <body>
 
         <br/>
-    <center>
+    
+    <div class="container">
         <form action="LoginController" method="post">
-            <h2>Munkaidő nyilvántartó rendszer</h2>
+            <h3>Munkaidő nyilvántartó rendszer</h3>
             <br/>
-            <input type="text" size="15" maxlength="12" placeholder="Felhasználónév" name="uname" required autofocus >
+            <input type="text" class="form-control" maxlength="12" placeholder="Felhasználónév" name="uname" required autofocus >
             <br/>
-            <input type="password" size="15" maxlength="12" placeholder="Jelszó" name="pwd" required >
+            <input type="password" class="form-control" maxlength="12" placeholder="Jelszó" name="pwd" required >
             <br/>
             <br/>
-            <input type="submit" value="Belépés" />
+            <input type="submit" class="btn" value="Belépés" />
 
         </form>
 
         <br/>
         <font color="red"> ${hibasuser} </font>
 
-    </center>
+    </div>
 
 </body>
 </html>

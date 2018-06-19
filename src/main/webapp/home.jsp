@@ -16,6 +16,7 @@
         <%@ include file="/WEB-INF/jspf/navbar.jspf" %>
 
         <div class="container">
+            <br/>
             <h3>${fullname}</h3>
             <p>Üdvözöllek ${user}!</p>
         </div>    

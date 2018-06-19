@@ -6,7 +6,7 @@
 
         <%@ include file="/WEB-INF/jspf/head.jspf" %>
 
-        <title>Admin</title>
+        <title>Ügyfelek</title>
 
     </head>
 
@@ -14,17 +14,16 @@
 
         <%@ include file="/WEB-INF/jspf/mustadmin.jspf" %>
 
-        <%@ include file="/WEB-INF/jspf/navbar.jspf" %>
+        <%@ include file="/WEB-INF/jspf/navbaradmin.jspf" %>
 
         <div class="container">
+            <br/>
             <h3>${fullname}</h3>
-            <p>Kezdheted a munkát...</p>
-
         
             <table class="table">
 		<caption>Ügyfelek</caption>
 		<thead>
-			<th>iD</th>
+			<th>ID</th>
 			<th>Ügyfélnév</th>
                         <th>Irsz</th>
                         <th>Város</th>

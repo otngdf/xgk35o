@@ -16,6 +16,10 @@
         <servlet-name>ActivitiesController</servlet-name>
         <servlet-class>org.zgdf.ea.controller.ActivitiesController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>EmployeesController</servlet-name>
+        <servlet-class>org.zgdf.ea.controller.EmployeesController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/LoginController</url-pattern>
@@ -31,6 +35,10 @@
     <servlet-mapping>
         <servlet-name>ActivitiesController</servlet-name>
         <url-pattern>/ActivitiesController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EmployeesController</servlet-name>
+        <url-pattern>/EmployeesController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

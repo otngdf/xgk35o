@@ -5,20 +5,20 @@
 
         <%@ include file="/WEB-INF/jspf/head.jspf" %>
 
-        <title>Stop</title>
+        <title>Menü</title>
 
     </head>
 
     <body>
 
-        <%@ include file="/WEB-INF/jspf/mustlogin.jspf" %>
+        <%@ include file="/WEB-INF/jspf/mustadmin.jspf" %>
 
-        <%@ include file="/WEB-INF/jspf/navbar.jspf" %>
+        <%@ include file="/WEB-INF/jspf/navbaradmin.jspf" %>
 
         <div class="container">
             <br/>
             <h3>${fullname}</h3>
-            <p>Most már fejezd be...</p>
+            <p>Üdvözöllek ${user}!</p>
         </div>    
 
     </body>
