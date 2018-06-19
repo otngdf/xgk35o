@@ -16,7 +16,7 @@ public class CustomersDao {
         try {
             Class.forName("org.mariadb.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mariadb://192.168.1.120:3306/appDB?user=root&password=root");
-
+            
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery("select * from CUSTOMERS order by Cname");
 

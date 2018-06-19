@@ -1,0 +1,7 @@
+<%
+    response.setHeader("Cache-control", "no-cache, no-store, must-revalidate");
+
+    if (!"admin".equals((String)session.getAttribute("role"))) {
+        response.sendRedirect("home.jsp");
+    }
+%>

@@ -37,7 +37,7 @@ public class LoginController extends HttpServlet {
         } else {
 //            RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
 //            rd.forward(request, response);
-            session.setAttribute("Hiba", "Nem megfelelő felhasználónév vagy jelszó!");
+            session.setAttribute("hibasuser", "Nem megfelelő felhasználónév vagy jelszó!");
             response.sendRedirect("index.jsp");
         }
 

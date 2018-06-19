@@ -24,7 +24,8 @@
         </form>
 
         <br/>
-        <font color="red"> ${Hiba} </font>
+        <font color="red"> ${hibasuser} </font>
+
     </center>
 
 </body>

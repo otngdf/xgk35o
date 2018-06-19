@@ -11,7 +11,7 @@ public class ActivitiesDao {
         try {
             Class.forName("org.mariadb.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mariadb://192.168.1.120:3306/appDB?user=root&password=root");
-
+            
             Statement st = con.createStatement();
             st.executeUpdate("insert into ACTIVITIES (Uid,Cid,Start,Comment) values (" + uid + "," + cid + ",'" + date + "','" + comment + "')");
 

@@ -8,6 +8,7 @@
       <a class="nav-item nav-link active" href="home.jsp">Home <span class="sr-only">(current)</span></a>
       <a class="nav-item nav-link" href="CustomersController">Kezd</a>
       <a class="nav-item nav-link" href="stop.jsp">Leállít</a>
+      <a class="nav-item nav-link" href="CustomersController">Admin</a>
       <a class="nav-item nav-link" href="LogoutController">Kilépés</a>
     </div>
   </div>

@@ -20,11 +20,17 @@ public class CustomersController extends HttpServlet {
         
         List<Customers> listCustomers = dao.list();
         
-//        HttpSession session = request.getSession();
-            
+        HttpSession session = request.getSession();
+        
         request.setAttribute("listCustomers", listCustomers);
+        
+        if(!"admin".equals((String)session.getAttribute("role"))){
+            request.getRequestDispatcher("admin.jsp").forward(request, response);
+        }else{
+            request.getRequestDispatcher("start.jsp").forward(request, response);
+        }
  
-        request.getRequestDispatcher("start.jsp").forward(request, response);
+        
 //            session.setAttribute("listCustomers", listCustomers);
 //            response.sendRedirect("start.jsp");
 
