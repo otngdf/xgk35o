@@ -10,23 +10,26 @@ import org.zgdf.ea.model.Customers;
 
 public class CustomersDao {
 
+    private static final String DRIVER = "org.mariadb.jdbc.Driver";
+    private static final String DBURL = "jdbc:mariadb://192.168.1.120:3306/appdb?user=root&password=root";
+
     public List<Customers> list() {
         List<Customers> listCustomers = new ArrayList<>();
 
         try {
-            Class.forName("org.mariadb.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mariadb://192.168.1.120:3306/appDB?user=root&password=root");
-            
+            Class.forName(DRIVER);
+            Connection con = DriverManager.getConnection(DBURL);
+
             Statement st = con.createStatement();
-            ResultSet rs = st.executeQuery("select * from CUSTOMERS order by Cname");
+            ResultSet rs = st.executeQuery("select * from customers order by name");
 
             while (rs.next()) {
-                int id = rs.getInt("Cid");
-                String name = rs.getString("Cname");
-                int zip = rs.getInt("Czip");
-                String city = rs.getString("Ccity");
-                String address = rs.getString("Caddress");
-                
+                int id = rs.getInt("id");
+                String name = rs.getString("name");
+                int zip = rs.getInt("zip");
+                String city = rs.getString("city");
+                String address = rs.getString("address");
+
                 Customers customer = new Customers(id, name, zip, city, address);
 
                 listCustomers.add(customer);

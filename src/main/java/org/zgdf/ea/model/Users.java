@@ -1,10 +1,12 @@
 package org.zgdf.ea.model;
 
 public class Users {
+
     private int userID;
     private String userName;
     private String password;
     private String userRole;
+    private int active;
     private String fullName;
 
     public int getUserID() {
@@ -39,6 +41,14 @@ public class Users {
         this.userRole = userRole;
     }
 
+    public int getActive() {
+        return active;
+    }
+
+    public void setActive(int active) {
+        this.active = active;
+    }
+
     public String getFullName() {
         return fullName;
     }
@@ -49,7 +59,7 @@ public class Users {
 
     @Override
     public String toString() {
-        return "Users{" + "userID=" + userID + ", userName=" + userName + ", password=" + password + ", userRole=" + userRole + ", fullName=" + fullName + '}';
+        return "Users{" + "userID=" + userID + ", userName=" + userName + ", password=" + password + ", userRole=" + userRole + ", active=" + active + ", fullName=" + fullName + '}';
     }
-        
+
 }

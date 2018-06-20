@@ -27,6 +27,7 @@
 			<th>Felhasználónév</th>
                         <th>Jogosultság</th>
                         <th>Teljes Név</th>
+                        <th>Aktív</th>
                         <th>Művelet</th>
 		</thead>
 		<tbody>
@@ -35,7 +36,8 @@
 					<td>${users.userID}</td>
 					<td>${users.userName}</td>
                                         <td>${users.userRole}</td>
-					<td>${users.fullName}</td>
+                                        <td>${users.fullName}</td>
+                                        <td>${users.active}</td>
                                         <td><a class="btn" href="#">Delete</a></td>
 				</tr>
 			</c:forEach>

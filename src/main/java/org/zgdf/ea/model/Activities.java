@@ -2,12 +2,14 @@ package org.zgdf.ea.model;
 
 public class Activities {
 
-private int activityID;
-private int userID;
-private int customerID;
-private String start;
-private String stop;
-private String comment;
+    private int activityID;
+    private int userID;
+    private String uName;
+    private int customerID;
+    private String cName;
+    private String start;
+    private String stop;
+    private String comment;
 
     public int getActivityID() {
         return activityID;
@@ -57,9 +59,25 @@ private String comment;
         this.comment = comment;
     }
 
+    public String getuName() {
+        return uName;
+    }
+
+    public void setuName(String uName) {
+        this.uName = uName;
+    }
+
+    public String getcName() {
+        return cName;
+    }
+
+    public void setcName(String cName) {
+        this.cName = cName;
+    }
+
     @Override
     public String toString() {
-        return "Activities{" + "activityID=" + activityID + ", userID=" + userID + ", customerID=" + customerID + ", start=" + start + ", stop=" + stop + ", comment=" + comment + '}';
+        return "Activities{" + "activityID=" + activityID + ", userID=" + userID + ", uName=" + uName + ", customerID=" + customerID + ", cName=" + cName + ", start=" + start + ", stop=" + stop + ", comment=" + comment + '}';
     }
-    
+
 }
