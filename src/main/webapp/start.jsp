@@ -6,12 +6,6 @@
 
         <%@ include file="/WEB-INF/jspf/head.jspf" %>
 
-        <style>
-            .customWidth {
-                width: 200px;
-            }
-        </style>
-
         <title>Start</title>
 
     </head>
@@ -25,13 +19,12 @@
         <div class="container">
             <br/>
             <h3>${fullname}</h3>
-            <p>Kezdheted a munkát...</p>
-
+            
             <form action="ActivitiesController" >
 
                 <b>Helyszín</b>
                 <br/>
-                <select class="form-control" name="customer" class="customWidth">
+                <select class="form-control" name="customer" >
                     <c:forEach items="${listCustomers}" var="customers">
                         <option value="${customers.customerID}">${customers.cName}</option>
                     </c:forEach>
@@ -40,16 +33,19 @@
 
                 <b>Dátum</b>
                 <br/>
-                <input type="datetime-local" class="form-control" name="date" required class="customWidth">
+                <input type="datetime-local" class="form-control" name="date" required >
                 <br/>
 
                 <b>Tevékenység</b>
                 <br/>
 
-                <textarea name="activity" class="form-control" placeholder="Megjegyzés" rows="4" class="customWidth"></textarea>
+                <textarea name="activity" class="form-control" placeholder="Megjegyzés" rows="4" ></textarea>
 
                 <br/>
-                <button type="submit" class="btn">Submit</button>
+                <button type="submit" class="btn">Küld</button>
+                
+                <br/><br/>
+                <font color="red"> ${vanbefejezetlen} </font>
         </div>
 
     </form>

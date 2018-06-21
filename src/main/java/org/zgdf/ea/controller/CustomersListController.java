@@ -10,7 +10,7 @@ import org.zgdf.ea.db.CustomersDao;
 import java.util.List;
 import org.zgdf.ea.model.Customers;
 
-public class CustomersController extends HttpServlet {
+public class CustomersListController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)

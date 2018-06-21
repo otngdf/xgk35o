@@ -6,8 +6,8 @@
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
       <a class="nav-item nav-link active" href="homeadmin.jsp">Home <span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link" href="CustomersController">Ügyfelek</a>
-      <a class="nav-item nav-link" href="EmployeesController">Munkatársak</a>
+      <a class="nav-item nav-link" href="CustomersListController">Ügyfelek</a>
+      <a class="nav-item nav-link" href="UsersListController">Munkatársak</a>
       <a class="nav-item nav-link" href="ActivitiesListController">Munkák</a>
       <a class="nav-item nav-link" href="LogoutController">Kilépés</a>
     </div>

@@ -13,7 +13,7 @@ import org.zgdf.ea.model.Users;
  *
  * @author User
  */
-public class EmployeesController extends HttpServlet {
+public class UsersListController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -25,7 +25,7 @@ public class EmployeesController extends HttpServlet {
 
         request.setAttribute("listUsers", listUsers);
 
-        request.getRequestDispatcher("employees.jsp").forward(request, response);
+        request.getRequestDispatcher("users.jsp").forward(request, response);
     }
 
 }

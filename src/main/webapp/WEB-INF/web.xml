@@ -9,20 +9,28 @@
         <servlet-class>org.zgdf.ea.controller.LogoutController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>CustomersController</servlet-name>
-        <servlet-class>org.zgdf.ea.controller.CustomersController</servlet-class>
+        <servlet-name>CustomersListController</servlet-name>
+        <servlet-class>org.zgdf.ea.controller.CustomersListController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ActivitiesController</servlet-name>
         <servlet-class>org.zgdf.ea.controller.ActivitiesController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>EmployeesController</servlet-name>
-        <servlet-class>org.zgdf.ea.controller.EmployeesController</servlet-class>
+        <servlet-name>UsersListController</servlet-name>
+        <servlet-class>org.zgdf.ea.controller.UsersListController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ActivitiesListController</servlet-name>
         <servlet-class>org.zgdf.ea.controller.ActivitiesListController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ActivitiesStopController</servlet-name>
+        <servlet-class>org.zgdf.ea.controller.ActivitiesStopController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ActivitiesUserDoStopController</servlet-name>
+        <servlet-class>org.zgdf.ea.controller.ActivitiesUserDoStopController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
@@ -33,20 +41,28 @@
         <url-pattern>/LogoutController</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>CustomersController</servlet-name>
-        <url-pattern>/CustomersController</url-pattern>
+        <servlet-name>CustomersListController</servlet-name>
+        <url-pattern>/CustomersListController</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ActivitiesController</servlet-name>
         <url-pattern>/ActivitiesController</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>EmployeesController</servlet-name>
-        <url-pattern>/EmployeesController</url-pattern>
+        <servlet-name>UsersListController</servlet-name>
+        <url-pattern>/UsersListController</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ActivitiesListController</servlet-name>
         <url-pattern>/ActivitiesListController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ActivitiesStopController</servlet-name>
+        <url-pattern>/ActivitiesStopController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ActivitiesUserDoStopController</servlet-name>
+        <url-pattern>/ActivitiesUserDoStopController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

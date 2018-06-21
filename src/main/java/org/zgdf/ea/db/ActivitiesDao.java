@@ -26,6 +26,19 @@ public class ActivitiesDao {
         }
     }
 
+    public void insertStop(int uid, String date) {
+        try {
+            Class.forName(DRIVER);
+            Connection con = DriverManager.getConnection(DBURL);
+
+            Statement st = con.createStatement();
+            st.executeUpdate("update activities set stop = '" + date + "' where stop is null and users_id = " + uid);
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
     public List<Activities> list() {
         List<Activities> listActivities = new ArrayList<>();
 
@@ -40,16 +53,65 @@ public class ActivitiesDao {
                     + "order by a.id desc");
 
             while (rs.next()) {
-                
+
                 Activities activity = new Activities();
-                
+
                 activity.setActivityID(rs.getInt("a.id"));
                 activity.setuName(rs.getString("u.name"));
                 activity.setcName(rs.getString("c.name"));
                 activity.setStart(rs.getString("a.start"));
                 activity.setStop(rs.getString("a.stop"));
                 activity.setComment(rs.getString("a.comment"));
-                
+
+                listActivities.add(activity);
+
+            }
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
+        return listActivities;
+    }
+
+    public boolean hasNoEnd(int uid) {
+        try {
+            Class.forName(DRIVER);
+            Connection con = DriverManager.getConnection(DBURL);
+
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery("select * from activities where users_id = " + uid + " and stop is null");
+
+            if (rs.next()) {
+                return true;
+            }
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
+        return false;
+    }
+
+    public List<Activities> listWhatHasNoEnd(int uid) {
+        List<Activities> listActivities = new ArrayList<>();
+
+        try {
+            Class.forName(DRIVER);
+            Connection con = DriverManager.getConnection(DBURL);
+
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery("select c.name, a.start, a.comment from activities a, customers c\n"
+                    + "where a.users_id = " + uid + " and a.customers_id = c.id and a.stop is null");
+
+            while (rs.next()) {
+
+                Activities activity = new Activities();
+
+                activity.setcName(rs.getString("c.name"));
+                activity.setStart(rs.getString("a.start"));
+                activity.setComment(rs.getString("a.comment"));
+
                 listActivities.add(activity);
 
             }
