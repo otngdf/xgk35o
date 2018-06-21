@@ -8,7 +8,10 @@ import java.util.List;
 public class UsersDao {
     
     private static final String DRIVER = "org.mariadb.jdbc.Driver";
-    private static final String DBURL = "jdbc:mariadb://192.168.1.120:3306/appdb?user=root&password=root";
+    //rpi
+//    private static final String DBURL = "jdbc:mariadb://192.168.1.120:3306/appdb?user=root&password=root";
+    //notebook
+    private static final String DBURL = "jdbc:mariadb://localhost:3306/appdb?user=root&password=root";
 
     public Users getUser(String u, String p) {
 

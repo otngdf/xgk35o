@@ -19,7 +19,7 @@
             <br/>
             <input type="password" class="form-control" maxlength="12" placeholder="Jelszó" name="pwd" required >
             <br/>
-            <br/>
+            
             <input type="submit" class="btn" value="Belépés" />
 
         </form>
