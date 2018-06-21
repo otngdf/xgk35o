@@ -19,7 +19,7 @@
         <div class="container">
             <br/>
             <h3>${fullname}</h3>
-            
+
             <form action="ActivitiesController" >
 
                 <b>Helyszín</b>
@@ -43,14 +43,14 @@
 
                 <br/>
                 <button type="submit" class="btn">Küld</button>
-                
+
                 <br/><br/>
                 <font color="red"> ${vanbefejezetlen} </font>
+
+
+            </form>
+
         </div>
 
-    </form>
-
-
-
-</body>
+    </body>
 </html>

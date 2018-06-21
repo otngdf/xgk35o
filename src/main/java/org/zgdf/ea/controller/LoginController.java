@@ -26,7 +26,7 @@ public class LoginController extends HttpServlet {
         if (u.getUserName() != null && u.getUserRole().equals("user")) {
 //            request.setAttribute("user", u);
 
-            session.setAttribute("userid", u.getUserID());
+            //session.setAttribute("userid", u.getUserID());
             session.setAttribute("user", u.getUserName());
             session.setAttribute("role", u.getUserRole());
             session.setAttribute("fullname", u.getFullName());
@@ -35,7 +35,7 @@ public class LoginController extends HttpServlet {
 //            rd.forward(request, response);
             response.sendRedirect("home.jsp");
         } else if (u.getUserName() != null && u.getUserRole().equals("admin")) {
-            session.setAttribute("userid", u.getUserID());
+            //session.setAttribute("userid", u.getUserID());
             session.setAttribute("user", u.getUserName());
             session.setAttribute("role", u.getUserRole());
             session.setAttribute("fullname", u.getFullName());

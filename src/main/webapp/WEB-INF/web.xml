@@ -32,6 +32,22 @@
         <servlet-name>ActivitiesUserDoStopController</servlet-name>
         <servlet-class>org.zgdf.ea.controller.ActivitiesUserDoStopController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CustomersCreateController</servlet-name>
+        <servlet-class>org.zgdf.ea.controller.CustomersCreateController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UsersCreateController</servlet-name>
+        <servlet-class>org.zgdf.ea.controller.UsersCreateController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CustomersDeleteController</servlet-name>
+        <servlet-class>org.zgdf.ea.controller.CustomersDeleteController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UsersActivateInactivateController</servlet-name>
+        <servlet-class>org.zgdf.ea.controller.UsersActivateInactivateController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/LoginController</url-pattern>
@@ -63,6 +79,22 @@
     <servlet-mapping>
         <servlet-name>ActivitiesUserDoStopController</servlet-name>
         <url-pattern>/ActivitiesUserDoStopController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CustomersCreateController</servlet-name>
+        <url-pattern>/CustomersCreateController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UsersCreateController</servlet-name>
+        <url-pattern>/UsersCreateController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CustomersDeleteController</servlet-name>
+        <url-pattern>/CustomersDeleteController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UsersActivateInactivateController</servlet-name>
+        <url-pattern>/UsersActivateInactivateController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

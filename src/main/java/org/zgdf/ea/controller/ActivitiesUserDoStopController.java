@@ -1,4 +1,3 @@
-
 package org.zgdf.ea.controller;
 
 import java.io.IOException;
@@ -11,10 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.zgdf.ea.db.ActivitiesDao;
 
-/**
- *
- * @author User
- */
 public class ActivitiesUserDoStopController extends HttpServlet {
 
     @Override
@@ -28,10 +23,9 @@ public class ActivitiesUserDoStopController extends HttpServlet {
 
         ActivitiesDao dao = new ActivitiesDao();
 
-        
-            dao.insertStop(userid, date);
+        dao.updateStop(userid, date);
 
-            response.sendRedirect("stop.jsp");
-        }
+        response.sendRedirect("stop.jsp");
+    }
 
 }

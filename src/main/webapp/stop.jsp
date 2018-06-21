@@ -52,7 +52,7 @@
                 <input type="datetime-local" class="form-control" name="date" required >
                 <br/>
 
-                
+
                 <button type="submit" class="btn">Lezár</button>
 
 

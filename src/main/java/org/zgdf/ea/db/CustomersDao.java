@@ -12,9 +12,9 @@ public class CustomersDao {
 
     private static final String DRIVER = "org.mariadb.jdbc.Driver";
     //rpi
-//    private static final String DBURL = "jdbc:mariadb://192.168.1.120:3306/appdb?user=root&password=root";
+    private static final String DBURL = "jdbc:mariadb://192.168.1.120:3306/appdb?user=root&password=root";
     //notebook
-    private static final String DBURL = "jdbc:mariadb://localhost:3306/appdb?user=root&password=root";
+//    private static final String DBURL = "jdbc:mariadb://localhost:3306/appdb?user=root&password=root";
 
     public List<Customers> list() {
         List<Customers> listCustomers = new ArrayList<>();
@@ -44,6 +44,32 @@ public class CustomersDao {
         }
 
         return listCustomers;
+    }
+
+    public void insert(String cname, int czip, String ccity, String caddress) {
+        try {
+            Class.forName(DRIVER);
+            Connection con = DriverManager.getConnection(DBURL);
+
+            Statement st = con.createStatement();
+            st.executeUpdate("insert into customers (name,zip,city,address) values ('" + cname + "' ," + czip + ",'" + ccity + "','" + caddress + "')");
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+    
+    public void delete(int id) {
+        try {
+            Class.forName(DRIVER);
+            Connection con = DriverManager.getConnection(DBURL);
+
+            Statement st = con.createStatement();
+            st.executeUpdate("delete from customers where id = " + id);
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
     }
 
 }

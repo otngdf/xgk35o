@@ -9,9 +9,9 @@ public class UsersDao {
     
     private static final String DRIVER = "org.mariadb.jdbc.Driver";
     //rpi
-//    private static final String DBURL = "jdbc:mariadb://192.168.1.120:3306/appdb?user=root&password=root";
+    private static final String DBURL = "jdbc:mariadb://192.168.1.120:3306/appdb?user=root&password=root";
     //notebook
-    private static final String DBURL = "jdbc:mariadb://localhost:3306/appdb?user=root&password=root";
+//    private static final String DBURL = "jdbc:mariadb://localhost:3306/appdb?user=root&password=root";
 
     public Users getUser(String u, String p) {
 
@@ -69,6 +69,32 @@ public class UsersDao {
         }
 
         return listUsers;
+    }
+    
+    public void insert(String uname, String upass, String urole, String ufullname) {
+        try {
+            Class.forName(DRIVER);
+            Connection con = DriverManager.getConnection(DBURL);
+
+            Statement st = con.createStatement();
+            st.executeUpdate("insert into users (name,pass,role,fullname,active) values ('" + uname + "' ,'" + upass + "','" + urole + "','" + ufullname + "', 1)");
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+    
+    public void activateInactivate(int id, int active) {
+        try {
+            Class.forName(DRIVER);
+            Connection con = DriverManager.getConnection(DBURL);
+
+            Statement st = con.createStatement();
+            st.executeUpdate("update users set active = " + active + " where id = " + id);
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
     }
 
 }

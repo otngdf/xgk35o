@@ -5,23 +5,23 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import org.zgdf.ea.db.CustomersDao;
 
-public class LogoutController extends HttpServlet {
+public class CustomersDeleteController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-    
-        HttpSession session = request.getSession();
+
+        //System.out.println(request.getParameter("id"));
         
-        session.removeAttribute("userid");
-        session.removeAttribute("user");
-        session.removeAttribute("role");
-        session.removeAttribute("fullname");
-        session.invalidate();
+        int id = Integer.parseInt(request.getParameter("id"));
         
-        response.sendRedirect("index.jsp");
+        CustomersDao dao = new CustomersDao();
+
+        dao.delete(id);
+
+        response.sendRedirect("CustomersListController");
         
     }
 
