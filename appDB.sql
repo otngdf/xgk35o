@@ -1,43 +1,62 @@
 --mysql
-USE appDB;
+USE appdb;
 
-CREATE TABLE USERS (
-	Uid int PRIMARY KEY AUTO_INCREMENT,
-    Uname varchar(12) NOT NULL UNIQUE,
-    Upass varchar(12) NOT NULL,
-    Urole varchar(12) NOT NULL,
-    Fullname varchar(24)
+CREATE TABLE users (
+	id smallint UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+    name varchar(12) NOT NULL UNIQUE,
+    pass varchar(12) NOT NULL,
+    role varchar(12) NOT NULL,
+	active tinyint(1) UNSIGNED,
+    fullname varchar(24)
 );
 
-CREATE TABLE CUSTOMERS (
-	Cid int PRIMARY KEY AUTO_INCREMENT,
-    Cname varchar(24) NOT NULL UNIQUE,
-    Czip int,
-    Ccity varchar(24),
-    Caddress varchar(24)
+CREATE TABLE customers (
+	id smallint UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+    name varchar(24) NOT NULL UNIQUE,
+    zip smallint UNSIGNED,
+    city varchar(24),
+    address varchar(24)
 );
 
-CREATE TABLE ACTIVITIES (
-	Aid int PRIMARY KEY AUTO_INCREMENT,
-    Uid int,
-    Cid int,
-    Start datetime,
-    Stop datetime,
-    Comment varchar(100)
+CREATE TABLE activities (
+	id int UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+    users_id smallint UNSIGNED NOT NULL,
+    customers_id smallint UNSIGNED NOT NULL,
+    start datetime,
+    stop datetime,
+    comment varchar(100),
+	CONSTRAINT `fk_activites_users`
+	FOREIGN KEY (users_id) REFERENCES users (id)
+	ON DELETE RESTRICT ON UPDATE CASCADE,
+	CONSTRAINT `fk_activites_customers`
+	FOREIGN KEY (customers_id) REFERENCES customers (id)
+	ON DELETE RESTRICT ON UPDATE CASCADE
 );
 
-insert into appDB.USERS values (null,'Zoli','pass','employee','Szabó Zoltán');
-insert into appDB.USERS values (null,'Ali','pass','admin','Mézga Aladár');
+insert into appdb.users values (null,'Zoli','pass','user', 1, 'Szabó Zoltán');
+insert into appdb.users values (null,'Ali','pass','user', 0, 'Mézga Aladár');
+insert into appdb.users values (null,'Admin','pass','admin', 1, 'Mekk Elek');
+insert into appdb.users values (null,'Han','pass','user', 1, 'Han Solo');
 
-insert into appDB.CUSTOMERS values (null,'Csodás Gasztro Kft.',1111,'Budapest','Kicsi utca 1.');
-insert into appDB.CUSTOMERS values (null,'Nagy Ügyvédi Iroda',2222,'Budapest','Nagy utca 1.');
-insert into appDB.CUSTOMERS values (null,'Kis cukrászda',3333,'Budapest','Kis utca 1.');
-insert into appDB.CUSTOMERS values (null,'Kocsma az it-sokhoz',4444,'Budapest','Google utca 1.');
-insert into appDB.CUSTOMERS values (null,'Privát nyomda',5555,'Budapest','Privát utca 1.');
+insert into appdb.customers values (null,'Csodás Gasztro Kft.',1111,'Budapest','Kicsi utca 1.');
+insert into appdb.customers values (null,'Nagy Ügyvédi Iroda',2222,'Budapest','Nagy utca 1.');
+insert into appdb.customers values (null,'Kis cukrászda',3333,'Budapest','Kis utca 1.');
+insert into appdb.customers values (null,'Kocsma az it-sokhoz',4444,'Budapest','Google utca 1.');
+insert into appdb.customers values (null,'Privát nyomda',5555,'Budapest','Privát utca 1.');
 
-select * from appDB.USERS;
-select * from appDB.CUSTOMERS;
-select * from appDB.ACTIVITIES;
+--fk teszt
+--insert into appdb.activities (id, users_id, customers_id) values (null, 1, 1);
+--delete from appdb.users where id = 1;
+--update appdb.users set id = 100 where id = 1;
 
---truncate table USERS;
---truncate table CUSTOMERS;
+select * from appdb.users;
+select * from appdb.customers;
+select * from appdb.activities;
+
+--delete from appdb.users;
+--delete from appdb.customers;
+--delete from appdb.activities;
+
+--truncate table users;
+--truncate table customers;
+--truncate table activities;
