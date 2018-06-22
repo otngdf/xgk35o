@@ -21,7 +21,7 @@
             <h3>${fullname}</h3>
 
             <table class="table">
-                <caption>Ügyfelek</caption>
+                <caption>Ügyfelek <font color="red"> ${vanmunka} </font></caption>
                 <thead>
                 <th>ID</th>
                 <th>Ügyfélnév</th>

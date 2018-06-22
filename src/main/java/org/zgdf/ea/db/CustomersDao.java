@@ -12,9 +12,9 @@ public class CustomersDao {
 
     private static final String DRIVER = "org.mariadb.jdbc.Driver";
     //rpi
-    private static final String DBURL = "jdbc:mariadb://192.168.1.120:3306/appdb?user=root&password=root";
+//    private static final String DBURL = "jdbc:mariadb://192.168.1.120:3306/appdb?user=root&password=root";
     //notebook
-//    private static final String DBURL = "jdbc:mariadb://localhost:3306/appdb?user=root&password=root";
+    private static final String DBURL = "jdbc:mariadb://localhost:3306/appdb?user=root&password=root";
 
     public List<Customers> list() {
         List<Customers> listCustomers = new ArrayList<>();
@@ -58,7 +58,7 @@ public class CustomersDao {
             System.out.println(e);
         }
     }
-    
+
     public void delete(int id) {
         try {
             Class.forName(DRIVER);
@@ -70,6 +70,25 @@ public class CustomersDao {
         } catch (Exception e) {
             System.out.println(e);
         }
+    }
+
+    public boolean hasActivity(int id) {
+        try {
+            Class.forName(DRIVER);
+            Connection con = DriverManager.getConnection(DBURL);
+
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery("select * from activities where customers_id = " + id);
+
+            if (rs.next()) {
+                return true;
+            }
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
+        return false;
     }
 
 }
