@@ -12,9 +12,9 @@ public class ActivitiesDao {
 
     private static final String DRIVER = "org.mariadb.jdbc.Driver";
     //rpi
-//    private static final String DBURL = "jdbc:mariadb://192.168.1.120:3306/appdb?user=root&password=root";
+//    private static final String DBURL = "jdbc:mariadb://192.168.1.120:3306/appdb?app=root&password=pass";
     //notebook
-    private static final String DBURL = "jdbc:mariadb://localhost:3306/appdb?user=root&password=root";
+    private static final String DBURL = "jdbc:mariadb://localhost:3306/appdb?user=app&password=pass";
 
     public void insert(int uid, int cid, String date, String comment) {
         try {
@@ -52,6 +52,42 @@ public class ActivitiesDao {
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery("select a.id, u.name, c.name, a.start, a.stop, a.comment from activities a, users u, customers c\n"
                     + "where a.users_id = u.id\n"
+                    + "and a.customers_id = c.id\n"
+                    + "order by a.id desc");
+
+            while (rs.next()) {
+
+                Activities activity = new Activities();
+
+                activity.setActivityID(rs.getInt("a.id"));
+                activity.setuName(rs.getString("u.name"));
+                activity.setcName(rs.getString("c.name"));
+                activity.setStart(rs.getString("a.start"));
+                activity.setStop(rs.getString("a.stop"));
+                activity.setComment(rs.getString("a.comment"));
+
+                listActivities.add(activity);
+
+            }
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
+        return listActivities;
+    }
+    
+        public List<Activities> list(int uid) {
+        List<Activities> listActivities = new ArrayList<>();
+
+        try {
+            Class.forName(DRIVER);
+            Connection con = DriverManager.getConnection(DBURL);
+
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery("select a.id, u.name, c.name, a.start, a.stop, a.comment from activities a, users u, customers c\n"
+                    + "where u.id = " + uid +"\n"
+                    + "and a.users_id = u.id\n"
                     + "and a.customers_id = c.id\n"
                     + "order by a.id desc");
 

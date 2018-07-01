@@ -25,6 +25,10 @@
         <servlet-class>org.zgdf.ea.controller.ActivitiesListController</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>ActivitiesListUserController</servlet-name>
+        <servlet-class>org.zgdf.ea.controller.ActivitiesListUserController</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>ActivitiesStopController</servlet-name>
         <servlet-class>org.zgdf.ea.controller.ActivitiesStopController</servlet-class>
     </servlet>
@@ -71,6 +75,10 @@
     <servlet-mapping>
         <servlet-name>ActivitiesListController</servlet-name>
         <url-pattern>/ActivitiesListController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ActivitiesListUserController</servlet-name>
+        <url-pattern>/ActivitiesListUserController</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ActivitiesStopController</servlet-name>
