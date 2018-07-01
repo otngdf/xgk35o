@@ -33,6 +33,11 @@ CREATE TABLE activities (
 	ON DELETE RESTRICT ON UPDATE CASCADE
 );
 
+CREATE TABLE IF NOT EXISTS `version` (`version` varchar(24));
+insert into version values ('20180701 teszt');
+-- truncate table version;  
+-- select * from version
+
 insert into appdb.users values (null,'Zoli','pass','user', 1, 'Szabó Zoltán');
 insert into appdb.users values (null,'Ali','pass','user', 0, 'Mézga Aladár');
 insert into appdb.users values (null,'Admin','pass','admin', 1, 'Mekk Elek');

@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.zgdf.ea.model.Users;
 import org.zgdf.ea.db.UsersDao;
+import org.zgdf.ea.db.VersionDao;
 
 public class LoginController extends HttpServlet {
 
@@ -20,6 +21,10 @@ public class LoginController extends HttpServlet {
 
         UsersDao dao = new UsersDao();
         Users u = dao.getUser(username, password);
+        
+        VersionDao daov = new VersionDao();
+        String v = daov.showVersion();
+//        System.out.println(v);
 
         HttpSession session = request.getSession();
 
@@ -30,6 +35,7 @@ public class LoginController extends HttpServlet {
             session.setAttribute("user", u.getUserName());
             session.setAttribute("role", u.getUserRole());
             session.setAttribute("fullname", u.getFullName());
+            session.setAttribute("verzio", v);
 
 //            RequestDispatcher rd = request.getRequestDispatcher("welcome.jsp");
 //            rd.forward(request, response);
@@ -39,6 +45,7 @@ public class LoginController extends HttpServlet {
             session.setAttribute("user", u.getUserName());
             session.setAttribute("role", u.getUserRole());
             session.setAttribute("fullname", u.getFullName());
+            session.setAttribute("verzio", v);
 
             response.sendRedirect("homeadmin.jsp");
         } else {

@@ -19,6 +19,7 @@
             <br/>
             <h3>${fullname}</h3>
             <p>Üdvözöllek ${user}!</p>
+            <p>${verzio}</p>
         </div>    
 
     </body>
