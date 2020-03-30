@@ -14,8 +14,10 @@ public class CustomersDao {
     //rpi
 //    private static final String DBURL = "jdbc:mariadb://192.168.1.120:3306/appdb?user=app&password=pass";
     //notebook
-    private static final String DBURL = "jdbc:mariadb://localhost:3306/appdb?user=app&password=pass";
+    //private static final String DBURL = "jdbc:mariadb://192.168.1.120:3306/appdb?user=app&password=pass";
 
+    private static final String DBURL = "jdbc:mariadb://localhost:3306/appdb?user=app&password=xgk35o";
+    
     public List<Customers> list() {
         List<Customers> listCustomers = new ArrayList<>();
 

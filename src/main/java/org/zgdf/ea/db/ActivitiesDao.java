@@ -14,7 +14,9 @@ public class ActivitiesDao {
     //rpi
 //    private static final String DBURL = "jdbc:mariadb://192.168.1.120:3306/appdb?app=root&password=pass";
     //notebook
-    private static final String DBURL = "jdbc:mariadb://localhost:3306/appdb?user=app&password=pass";
+    //private static final String DBURL = "jdbc:mariadb://192.168.1.120:3306/appdb?user=app&password=pass";
+    
+    private static final String DBURL = "jdbc:mariadb://localhost:3306/appdb?user=app&password=xgk35o";
 
     public void insert(int uid, int cid, String date, String comment) {
         try {
