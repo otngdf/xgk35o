@@ -11,7 +11,7 @@ import org.zgdf.ea.model.Activities;
 public class ActivitiesDao {
 
     private static final String DRIVER = "org.mariadb.jdbc.Driver";
-    //rpi
+    //raspberry
 //    private static final String DBURL = "jdbc:mariadb://192.168.1.120:3306/appdb?app=root&password=pass";
     //notebook
     //private static final String DBURL = "jdbc:mariadb://192.168.1.120:3306/appdb?user=app&password=pass";
