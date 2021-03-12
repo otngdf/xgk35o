@@ -1,7 +1,9 @@
 --mysql
+CREATE DATABASE IF NOT EXISTS `appdb`
+
 USE appdb;
 
-CREATE TABLE users (
+CREATE TABLE IF NOT EXISTS users (
 	id smallint UNSIGNED PRIMARY KEY AUTO_INCREMENT,
     name varchar(12) NOT NULL UNIQUE,
     pass varchar(12) NOT NULL,
@@ -10,7 +12,7 @@ CREATE TABLE users (
     fullname varchar(24)
 );
 
-CREATE TABLE customers (
+CREATE TABLE IF NOT EXISTS customers (
 	id smallint UNSIGNED PRIMARY KEY AUTO_INCREMENT,
     name varchar(24) NOT NULL UNIQUE,
     zip smallint UNSIGNED,
@@ -18,7 +20,7 @@ CREATE TABLE customers (
     address varchar(24)
 );
 
-CREATE TABLE activities (
+CREATE TABLE IF NOT EXISTS activities (
 	id int UNSIGNED PRIMARY KEY AUTO_INCREMENT,
     users_id smallint UNSIGNED NOT NULL,
     customers_id smallint UNSIGNED NOT NULL,
@@ -34,14 +36,11 @@ CREATE TABLE activities (
 );
 
 CREATE TABLE IF NOT EXISTS `version` (`version` varchar(24));
+
 insert into version values ('20180701 teszt');
--- truncate table version;  
--- select * from version
 
 insert into appdb.users values (null,'Zoli','pass','user', 1, 'Szabó Zoltán');
-insert into appdb.users values (null,'Ali','pass','user', 0, 'Mézga Aladár');
-insert into appdb.users values (null,'Admin','pass','admin', 1, 'Mekk Elek');
-insert into appdb.users values (null,'Han','pass','user', 1, 'Han Solo');
+insert into appdb.users values (null,'Admin','pass','admin', 1, 'Szabó Zoltán admin');
 
 insert into appdb.customers values (null,'Csodás Gasztro Kft.',1111,'Budapest','Kicsi utca 1.');
 insert into appdb.customers values (null,'Nagy Ügyvédi Iroda',2222,'Budapest','Nagy utca 1.');
