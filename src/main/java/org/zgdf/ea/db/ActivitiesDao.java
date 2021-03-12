@@ -1,5 +1,6 @@
 package org.zgdf.ea.db;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -12,8 +13,15 @@ public class ActivitiesDao {
 
     private static final String DRIVER = "org.mariadb.jdbc.Driver";
     //private static final String DBURL = "jdbc:mariadb://192.168.1.120:3306/appdb?user=app&password=pass";
-    private static final String DBURL = "jdbc:mariadb://localhost:3306/appdb?user=app&password=xgk35o";
+    //private static final String DBURL = "jdbc:mariadb://localhost:3306/appdb?user=app&password=xgk35o";
 
+    GetDBDao dao = new GetDBDao();
+    String DBURL;
+
+    public ActivitiesDao() throws IOException {
+        this.DBURL = dao.getDB();
+    }
+    
     public void insert(int uid, int cid, String date, String comment) {
         try {
             Class.forName(DRIVER);

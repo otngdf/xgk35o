@@ -1,5 +1,6 @@
 package org.zgdf.ea.db;
 
+import java.io.IOException;
 import org.zgdf.ea.model.Users;
 import java.sql.*;
 import java.util.ArrayList;
@@ -9,7 +10,14 @@ public class UsersDao {
     
     private static final String DRIVER = "org.mariadb.jdbc.Driver";
     //private static final String DBURL = "jdbc:mariadb://192.168.1.120:3306/appdb?user=app&password=pass";
-    private static final String DBURL = "jdbc:mariadb://localhost:3306/appdb?user=app&password=xgk35o";
+    //private static final String DBURL = "jdbc:mariadb://localhost:3306/appdb?user=app&password=xgk35o";
+    
+    GetDBDao dao = new GetDBDao();
+    String DBURL;
+
+    public UsersDao() throws IOException {
+        this.DBURL = dao.getDB();
+    }
     
     public Users getUser(String u, String p) {
 
