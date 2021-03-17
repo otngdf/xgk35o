@@ -5,16 +5,14 @@
  */
 package org.zgdf.ea.controller;
 
-import java.sql.Timestamp;
-
 /**
  *
  * @author User
  */
-public class GetTimestamp {
+public class GetLogMessage {
     
-    public static String ts() {
-        return new Timestamp(new java.util.Date().getTime()) + " Munkaido nyilvantarto esemeny: ";
+    public static String message() {
+         return " Munkaido nyilvantarto esemeny - ";
 }
     
 }

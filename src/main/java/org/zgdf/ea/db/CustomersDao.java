@@ -27,24 +27,23 @@ public class CustomersDao {
 
         try {
             Class.forName(DRIVER);
-            Connection con = DriverManager.getConnection(DBURL);
-
-            Statement st = con.createStatement();
-            ResultSet rs = st.executeQuery("select * from customers order by name");
-
-            while (rs.next()) {
-                int id = rs.getInt("id");
-                String name = rs.getString("name");
-                int zip = rs.getInt("zip");
-                String city = rs.getString("city");
-                String address = rs.getString("address");
-
-                Customers customer = new Customers(id, name, zip, city, address);
-
-                listCustomers.add(customer);
-
+            try (Connection con = DriverManager.getConnection(DBURL)) {
+                Statement st = con.createStatement();
+                ResultSet rs = st.executeQuery("select * from customers order by name");
+                
+                while (rs.next()) {
+                    int id = rs.getInt("id");
+                    String name = rs.getString("name");
+                    int zip = rs.getInt("zip");
+                    String city = rs.getString("city");
+                    String address = rs.getString("address");
+                    
+                    Customers customer = new Customers(id, name, zip, city, address);
+                    
+                    listCustomers.add(customer);
+                    
+                }
             }
-
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -55,11 +54,10 @@ public class CustomersDao {
     public void insert(String cname, int czip, String ccity, String caddress) {
         try {
             Class.forName(DRIVER);
-            Connection con = DriverManager.getConnection(DBURL);
-
-            Statement st = con.createStatement();
-            st.executeUpdate("insert into customers (name,zip,city,address) values ('" + cname + "' ," + czip + ",'" + ccity + "','" + caddress + "')");
-
+            try (Connection con = DriverManager.getConnection(DBURL)) {
+                Statement st = con.createStatement();
+                st.executeUpdate("insert into customers (name,zip,city,address) values ('" + cname + "' ," + czip + ",'" + ccity + "','" + caddress + "')");
+            }
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -68,11 +66,10 @@ public class CustomersDao {
     public void delete(int id) {
         try {
             Class.forName(DRIVER);
-            Connection con = DriverManager.getConnection(DBURL);
-
-            Statement st = con.createStatement();
-            st.executeUpdate("delete from customers where id = " + id);
-
+            try (Connection con = DriverManager.getConnection(DBURL)) {
+                Statement st = con.createStatement();
+                st.executeUpdate("delete from customers where id = " + id);
+            }
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -81,15 +78,14 @@ public class CustomersDao {
     public boolean hasActivity(int id) {
         try {
             Class.forName(DRIVER);
-            Connection con = DriverManager.getConnection(DBURL);
-
-            Statement st = con.createStatement();
-            ResultSet rs = st.executeQuery("select * from activities where customers_id = " + id);
-
-            if (rs.next()) {
-                return true;
+            try (Connection con = DriverManager.getConnection(DBURL)) {
+                Statement st = con.createStatement();
+                ResultSet rs = st.executeQuery("select * from activities where customers_id = " + id);
+                
+                if (rs.next()) {
+                    return true;
+                }
             }
-
         } catch (Exception e) {
             System.out.println(e);
         }

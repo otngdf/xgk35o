@@ -15,8 +15,6 @@ public class VersionDao {
     GetDBDao dao = new GetDBDao();
     String DBURL;
         
-    Connection con = null;
-
     public VersionDao() throws IOException {
         this.DBURL = dao.getDB();
     }
@@ -24,19 +22,18 @@ public class VersionDao {
     public String showVersion() {
         try {
             Class.forName(DRIVER);
-            Connection con = DriverManager.getConnection(DBURL);
-            
-            Statement st = con.createStatement();
-            ResultSet rs = st.executeQuery("select * from version");
-
-            String version;
-
-            if (rs.next()) {
-
-                version = rs.getString("version");
-                return version;
+            try (Connection con = DriverManager.getConnection(DBURL)) {
+                Statement st = con.createStatement();
+                ResultSet rs = st.executeQuery("select * from version");
+                
+                String version;
+                
+                if (rs.next()) {
+                    
+                    version = rs.getString("version");
+                    return version;
+                }
             }
-
         } catch (Exception e) {
             System.out.println(e);
         }

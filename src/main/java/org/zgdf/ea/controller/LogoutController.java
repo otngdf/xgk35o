@@ -15,6 +15,9 @@ public class LogoutController extends HttpServlet {
     
         HttpSession session = request.getSession();
         
+        String username = session.getAttribute("user").toString();
+        System.out.println(GetLogMessage.message() + "Sikeres logout: " + username);
+        
         session.removeAttribute("userid");
         session.removeAttribute("user");
         session.removeAttribute("role");
