@@ -6,7 +6,7 @@ USE appdb;
 CREATE TABLE IF NOT EXISTS users (
 	id smallint UNSIGNED PRIMARY KEY AUTO_INCREMENT,
     name varchar(12) NOT NULL UNIQUE,
-    pass varchar(12) NOT NULL,
+    pass char(128) NOT NULL,
     role varchar(12) NOT NULL,
 	active tinyint(1) UNSIGNED,
     fullname varchar(24)
@@ -39,8 +39,8 @@ CREATE TABLE IF NOT EXISTS `version` (`version` varchar(24));
 
 insert into version values ('20180701 teszt');
 
-insert into appdb.users values (null,'Zoli','pass','user', 1, 'Szabó Zoltán');
-insert into appdb.users values (null,'Admin','pass','admin', 1, 'Szabó Zoltán admin');
+insert into appdb.users values (null,'Zoli', SHA2('pass',512), 'user', 1, 'Szabó Zoltán');
+insert into appdb.users values (null,'Admin', SHA2('pass',512), 'admin', 1, 'Szabó Zoltán admin');
 
 insert into appdb.customers values (null,'Csodás Gasztro Kft.',1111,'Budapest','Kicsi utca 1.');
 insert into appdb.customers values (null,'Nagy Ügyvédi Iroda',2222,'Budapest','Nagy utca 1.');
