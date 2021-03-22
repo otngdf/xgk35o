@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS activities (
 
 CREATE TABLE IF NOT EXISTS `version` (`version` varchar(24));
 
-insert into version values ('20180701 teszt');
+insert into version values ('20210322 teszt');
 
 insert into appdb.users values (null,'Zoli', SHA2('pass',512), 'user', 1, 'Szabó Zoltán');
 insert into appdb.users values (null,'Admin', SHA2('pass',512), 'admin', 1, 'Szabó Zoltán admin');
