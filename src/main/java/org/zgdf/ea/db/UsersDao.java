@@ -1,5 +1,6 @@
 package org.zgdf.ea.db;
 
+import org.zgdf.ea.utils.GetDBDao;
 import java.io.IOException;
 import org.zgdf.ea.model.Users;
 import java.sql.*;
@@ -29,7 +30,7 @@ public class UsersDao {
             Class.forName(DRIVER);
             try (Connection con = DriverManager.getConnection(DBURL)) {
                 Statement st = con.createStatement();
-                ResultSet rs = st.executeQuery("select * from users where active = 1 and name = '" + u + "' and pass = PASSWORD('" + p + "')");
+                ResultSet rs = st.executeQuery("select * from users where active = 1 and name = '" + u + "' and pass = '" + p + "'");
                 
                 if (rs.next()) {
                     user.setUserID(rs.getInt("id"));
@@ -80,7 +81,7 @@ public class UsersDao {
             Class.forName(DRIVER);
             try (Connection con = DriverManager.getConnection(DBURL)) {
                 Statement st = con.createStatement();
-                st.executeUpdate("insert into users (name,pass,role,fullname,active) values ('" + uname + "' ,PASSWORD('" + upass + "'),'" + urole + "','" + ufullname + "', 1)");
+                st.executeUpdate("insert into users (name,pass,role,fullname,active) values ('" + uname + "','" + upass + "','" + urole + "','" + ufullname + "', 1)");
             }
         } catch (Exception e) {
             System.out.println(e);

@@ -1,5 +1,6 @@
 package org.zgdf.ea.controller;
 
+import org.zgdf.ea.utils.GetLogMessage;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -9,6 +10,7 @@ import javax.servlet.http.HttpSession;
 import org.zgdf.ea.model.Users;
 import org.zgdf.ea.db.UsersDao;
 import org.zgdf.ea.db.VersionDao;
+import org.zgdf.ea.utils.HashPassword;
 
 public class LoginController extends HttpServlet {
 
@@ -18,9 +20,10 @@ public class LoginController extends HttpServlet {
 
         String username = request.getParameter("uname");
         String password = request.getParameter("pwd");
-
+        String hashedPW = HashPassword.hashedPW(password);
+        
         UsersDao dao = new UsersDao();
-        Users u = dao.getUser(username, password);
+        Users u = dao.getUser(username, hashedPW);
         
         VersionDao daov = new VersionDao();
         String v = daov.showVersion();

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.zgdf.ea.db;
+package org.zgdf.ea.utils;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -17,7 +17,8 @@ import java.util.Properties;
 public class GetDBDao {
     public String getDB() throws FileNotFoundException, IOException {
         try {
-            FileInputStream fis = new FileInputStream("/opt/conf/db.properties");            
+            //FileInputStream fis = new FileInputStream("/opt/conf/db.properties");
+            FileInputStream fis = new FileInputStream("c:\\Users\\User\\Documents\\NetBeansProjects\\xgk35o\\db.properties");            
             Properties prop = new Properties();            
             prop.load(fis);
             //String DRIVER = (String) prop.get ("DriverName"); 

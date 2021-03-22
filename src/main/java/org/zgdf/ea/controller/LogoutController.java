@@ -1,5 +1,6 @@
 package org.zgdf.ea.controller;
 
+import org.zgdf.ea.utils.GetLogMessage;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
