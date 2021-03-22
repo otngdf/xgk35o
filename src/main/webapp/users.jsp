@@ -28,7 +28,9 @@
                 <th>Jogosultság</th>
                 <th>Teljes Név</th>
                 <th>Státusz</th>
-                <th>Státusz módosítás</th>
+                <th></th>
+                <th>Jelszó</th>
+                <th></th>
                 </thead>
                 <tbody>
                     <c:forEach items="${listUsers}" var="users">
@@ -38,7 +40,9 @@
                             <td>${users.userRole}</td>
                             <td>${users.fullName}</td>
                             <td>${users.active}</td>
-                            <td><a class="btn" href="UsersActivateInactivateController?mid=${users.userID}&mactive=${users.active}">Módosítás</a></td>
+                            <td><a class="btn" href="UsersActivateInactivateController?mid=${users.userID}&mactive=${users.active}">Státusz módosítás</a></td>
+                            <td><input type="password" class="form-control" maxlength="12" placeholder="Új jelszó" name="mpass" ></td>
+                            <td><a class="btn" href="">Jelszó módosítás</a></td>
                         </tr>
                     </c:forEach>
                 </tbody>
@@ -48,7 +52,7 @@
 
         <div class="container">
 
-            <form action="UsersCreateController" >
+            <form action="UsersCreateController" method="post" >
                 <h4>Új felhasználó rögzítése:</h4>
                 <br/>
                 <input type="text" class="form-control" maxlength="12" placeholder="Felhasználónév" name="uname" required >
