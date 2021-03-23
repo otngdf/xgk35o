@@ -19,7 +19,7 @@
             <br/>
             <h3>${fullname}</h3>
             <p>Üdvözöllek ${user}!</p>
-            <p>${verzio}</p>
+            <p>Adatbázis verzió: ${verzio}</p>
         </div>    
 
     </body>

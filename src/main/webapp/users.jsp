@@ -21,7 +21,12 @@
             <h3>${fullname}</h3>
 
             <table class="table">
-                <caption>Munkatársak</caption>
+                <caption>Munkatársak 
+                <font color="red">
+                <c:out value="${sessionScope.modositva}" />
+                </font>
+                <c:remove var="modositva" scope="session" />
+                </caption>
                 <thead>
                 <th>ID</th>
                 <th>Felhasználónév</th>
@@ -44,6 +49,8 @@
                 </tbody>
             </table> 
 
+
+            
         </div>
 
         <div class="container">
