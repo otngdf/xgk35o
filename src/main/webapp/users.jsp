@@ -28,9 +28,7 @@
                 <th>Jogosultság</th>
                 <th>Teljes Név</th>
                 <th>Státusz</th>
-                <th></th>
-                <th>Jelszó</th>
-                <th></th>
+                <th>Státusz módosítás</th>
                 </thead>
                 <tbody>
                     <c:forEach items="${listUsers}" var="users">
@@ -40,9 +38,7 @@
                             <td>${users.userRole}</td>
                             <td>${users.fullName}</td>
                             <td>${users.active}</td>
-                            <td><a class="btn" href="UsersActivateInactivateController?mid=${users.userID}&mactive=${users.active}">Státusz módosítás</a></td>
-                            <td><input type="password" class="form-control" maxlength="12" placeholder="Új jelszó" name="mpass" ></td>
-                            <td><a class="btn" href="">Jelszó módosítás</a></td>
+                            <td><a class="btn" href="UsersActivateInactivateController?mid=${users.userID}&mactive=${users.active}">Módosítás</a></td>
                         </tr>
                     </c:forEach>
                 </tbody>
@@ -71,6 +67,31 @@
 
             </form>
 
+        </div>
+            
+            <br/>
+            
+            <div class="container">
+
+            <form action="UsersNewPasswordController" method="post" >
+                <h4>Felhasználó jelszó módosítás:</h4>
+                <br/>
+                
+                <select id="selectedUser" name="selectedUser">
+                    <c:forEach var="users" items="${listUsers}">
+                        <option value="${users.userName}">${users.userName}@${users.fullName}</option>
+                    </c:forEach>
+                </select>
+                <br/>
+
+                <br/>
+                <input type="password" class="form-control" maxlength="12" placeholder="Új jelszó" name="newpass" required >
+                <br/>
+
+                <input type="submit" class="btn" value="Módosít" />
+
+            </form>
+                
         </div>
 
     </body>

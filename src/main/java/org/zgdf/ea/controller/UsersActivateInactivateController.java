@@ -29,7 +29,7 @@ public class UsersActivateInactivateController extends HttpServlet {
             mactive = 1;
         }
 
-        System.out.println(mid + " " + mactive);
+        //System.out.println(mid + " " + mactive);
 
         UsersDao dao = new UsersDao();
 

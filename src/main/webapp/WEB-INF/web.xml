@@ -52,6 +52,10 @@
         <servlet-name>UsersActivateInactivateController</servlet-name>
         <servlet-class>org.zgdf.ea.controller.UsersActivateInactivateController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UsersNewPasswordController</servlet-name>
+        <servlet-class>org.zgdf.ea.controller.UsersNewPasswordController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/LoginController</url-pattern>
@@ -103,6 +107,10 @@
     <servlet-mapping>
         <servlet-name>UsersActivateInactivateController</servlet-name>
         <url-pattern>/UsersActivateInactivateController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UsersNewPasswordController</servlet-name>
+        <url-pattern>/UsersNewPasswordController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

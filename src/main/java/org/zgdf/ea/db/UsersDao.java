@@ -99,5 +99,17 @@ public class UsersDao {
             System.out.println(e);
         }
     }
+    
+        public void modifyPassword(String suser, String newpassword) {
+        try {
+            Class.forName(DRIVER);
+            try (Connection con = DriverManager.getConnection(DBURL)) {
+                Statement st = con.createStatement();
+                st.executeUpdate("update users set pass = '" + newpassword + "' where name = '" + suser + "'");
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
 
 }
