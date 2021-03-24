@@ -8,7 +8,8 @@
       <a class="nav-item nav-link active" href="homeadmin.jsp">Home <span class="sr-only">(current)</span></a>
       <a class="nav-item nav-link" href="CustomersListController">Ügyfelek</a>
       <a class="nav-item nav-link" href="UsersListController">Munkatársak</a>
-      <a class="nav-item nav-link" href="ActivitiesListController">Munkák</a>
+      <a class="nav-item nav-link" href="ActivitiesListController">Munkák folyamatban</a>
+      <a class="nav-item nav-link" href="ActivitiesListDoneController">Munkák befejezve</a>
       <a class="nav-item nav-link" href="LogoutController">Kilépés</a>
     </div>
   </div>

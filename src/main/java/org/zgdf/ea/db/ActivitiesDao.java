@@ -22,7 +22,7 @@ public class ActivitiesDao {
     public ActivitiesDao() throws IOException {
         this.DBURL = dao.getDB();
     }
-    
+
     public void insert(int uid, int cid, String date, String comment) {
         try {
             Class.forName(DRIVER);
@@ -57,21 +57,22 @@ public class ActivitiesDao {
                 ResultSet rs = st.executeQuery("select a.id, u.name, c.name, a.start, a.stop, a.comment from activities a, users u, customers c\n"
                         + "where a.users_id = u.id\n"
                         + "and a.customers_id = c.id\n"
+                        + "and a.stop is null\n"
                         + "order by a.id desc");
-                
+
                 while (rs.next()) {
-                    
+
                     Activities activity = new Activities();
-                    
+
                     activity.setActivityID(rs.getInt("a.id"));
                     activity.setuName(rs.getString("u.name"));
                     activity.setcName(rs.getString("c.name"));
                     activity.setStart(rs.getString("a.start"));
                     activity.setStop(rs.getString("a.stop"));
                     activity.setComment(rs.getString("a.comment"));
-                    
+
                     listActivities.add(activity);
-                    
+
                 }
             }
         } catch (Exception e) {
@@ -80,8 +81,8 @@ public class ActivitiesDao {
 
         return listActivities;
     }
-    
-        public List<Activities> list(int uid) {
+
+    public List<Activities> list(int uid) {
         List<Activities> listActivities = new ArrayList<>();
 
         try {
@@ -89,24 +90,59 @@ public class ActivitiesDao {
             try (Connection con = DriverManager.getConnection(DBURL)) {
                 Statement st = con.createStatement();
                 ResultSet rs = st.executeQuery("select a.id, u.name, c.name, a.start, a.stop, a.comment from activities a, users u, customers c\n"
-                        + "where u.id = " + uid +"\n"
-                                + "and a.users_id = u.id\n"
-                                + "and a.customers_id = c.id\n"
-                                + "order by a.id desc");
-                
+                        + "where u.id = " + uid + "\n"
+                        + "and a.users_id = u.id\n"
+                        + "and a.customers_id = c.id\n"
+                        + "order by a.id desc");
+
                 while (rs.next()) {
-                    
+
                     Activities activity = new Activities();
-                    
+
                     activity.setActivityID(rs.getInt("a.id"));
                     activity.setuName(rs.getString("u.name"));
                     activity.setcName(rs.getString("c.name"));
                     activity.setStart(rs.getString("a.start"));
                     activity.setStop(rs.getString("a.stop"));
                     activity.setComment(rs.getString("a.comment"));
-                    
+
                     listActivities.add(activity);
-                    
+
+                }
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
+        return listActivities;
+    }
+
+    public List<Activities> listDone() {
+        List<Activities> listActivities = new ArrayList<>();
+
+        try {
+            Class.forName(DRIVER);
+            try (Connection con = DriverManager.getConnection(DBURL)) {
+                Statement st = con.createStatement();
+                ResultSet rs = st.executeQuery("select a.id, u.name, c.name, a.start, a.stop, a.comment from activities a, users u, customers c\n"
+                        + "where a.users_id = u.id\n"
+                        + "and a.customers_id = c.id\n"
+                        + "and a.stop is not null\n"
+                        + "order by a.id desc");
+
+                while (rs.next()) {
+
+                    Activities activity = new Activities();
+
+                    activity.setActivityID(rs.getInt("a.id"));
+                    activity.setuName(rs.getString("u.name"));
+                    activity.setcName(rs.getString("c.name"));
+                    activity.setStart(rs.getString("a.start"));
+                    activity.setStop(rs.getString("a.stop"));
+                    activity.setComment(rs.getString("a.comment"));
+
+                    listActivities.add(activity);
+
                 }
             }
         } catch (Exception e) {
@@ -122,7 +158,7 @@ public class ActivitiesDao {
             try (Connection con = DriverManager.getConnection(DBURL)) {
                 Statement st = con.createStatement();
                 ResultSet rs = st.executeQuery("select * from activities where users_id = " + uid + " and stop is null");
-                
+
                 if (rs.next()) {
                     return true;
                 }
@@ -143,17 +179,17 @@ public class ActivitiesDao {
                 Statement st = con.createStatement();
                 ResultSet rs = st.executeQuery("select c.name, a.start, a.comment from activities a, customers c\n"
                         + "where a.users_id = " + uid + " and a.customers_id = c.id and a.stop is null");
-                
+
                 while (rs.next()) {
-                    
+
                     Activities activity = new Activities();
-                    
+
                     activity.setcName(rs.getString("c.name"));
                     activity.setStart(rs.getString("a.start"));
                     activity.setComment(rs.getString("a.comment"));
-                    
+
                     listActivities.add(activity);
-                    
+
                 }
             }
         } catch (Exception e) {

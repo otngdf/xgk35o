@@ -60,6 +60,10 @@
         <servlet-name>ModifyMyPasswordController</servlet-name>
         <servlet-class>org.zgdf.ea.controller.ModifyMyPasswordController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ActivitiesListDoneController</servlet-name>
+        <servlet-class>org.zgdf.ea.controller.ActivitiesListDoneController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/LoginController</url-pattern>
@@ -119,6 +123,10 @@
     <servlet-mapping>
         <servlet-name>ModifyMyPasswordController</servlet-name>
         <url-pattern>/ModifyMyPasswordController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ActivitiesListDoneController</servlet-name>
+        <url-pattern>/ActivitiesListDoneController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
