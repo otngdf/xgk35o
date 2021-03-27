@@ -29,5 +29,9 @@
 
         </div>
 
+        <%
+            session.removeAttribute("hibasuser");
+        %>
+
     </body>
 </html>
