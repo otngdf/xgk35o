@@ -20,12 +20,16 @@
             <br/>
             <h3>${fullname}</h3>
 
+            <br>
+            <input class="form-control" id="myInput" type="text" placeholder="Keresés...">
+            <br>
+
             <table class="table">
                 <caption>Munkatársak 
-                <font color="red">
-                <c:out value="${sessionScope.modositva}" />
-                </font>
-                <c:remove var="modositva" scope="session" />
+                    <font color="red">
+                    <c:out value="${sessionScope.modositva}" />
+                    </font>
+                    <c:remove var="modositva" scope="session" />
                 </caption>
                 <thead>
                 <th>ID</th>
@@ -35,7 +39,7 @@
                 <th>Státusz</th>
                 <th>Státusz módosítás</th>
                 </thead>
-                <tbody>
+                <tbody id="myTable">
                     <c:forEach items="${listUsers}" var="users">
                         <tr>
                             <td>${users.userID}</td>
@@ -50,7 +54,7 @@
             </table> 
 
 
-            
+
         </div>
 
         <div class="container">
@@ -75,15 +79,15 @@
             </form>
 
         </div>
-            
-            <br/>
-            
-            <div class="container">
+
+        <br/>
+
+        <div class="container">
 
             <form action="UsersNewPasswordController" method="post" >
                 <h4>Felhasználó jelszó módosítás:</h4>
                 <br/>
-                
+
                 <select id="selectedUser" name="selectedUser">
                     <c:forEach var="users" items="${listUsers}">
                         <option value="${users.userName}">${users.userName}@${users.fullName}</option>
@@ -98,8 +102,12 @@
                 <input type="submit" class="btn" value="Módosít" />
 
             </form>
-                
+
         </div>
+
+        <script>
+            <%@ include file="/WEB-INF/js/tablesearch.js" %>
+        </script>
 
     </body>
 </html>

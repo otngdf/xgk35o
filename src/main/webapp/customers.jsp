@@ -7,7 +7,7 @@
         <%@ include file="/WEB-INF/jspf/head.jspf" %>
 
         <title>Ügyfelek</title>
-        
+
     </head>
 
     <body>
@@ -19,9 +19,15 @@
         <div class="container">
             <br/>
             <h3>${fullname}</h3>
+            
+            <font color="red"> ${vanmunka} </font>
+
+            <br>
+            <input class="form-control" id="myInput" type="text" placeholder="Keresés...">
+            <br>
 
             <table class="table">
-                <caption>Ügyfelek <font color="red"> ${vanmunka} </font></caption>
+                <caption>Ügyfelek</caption>
                 <thead>
                 <th>ID</th>
                 <th>Ügyfélnév</th>
@@ -30,7 +36,7 @@
                 <th>Cím</th>
                 <th>Művelet</th>
                 </thead>
-                <tbody>
+                <tbody id="myTable">
                     <c:forEach items="${listCustomers}" var="customers">
                         <tr>
                             <td>${customers.customerID}</td>
@@ -66,6 +72,10 @@
             </form>
 
         </div>
+
+        <script>
+            <%@ include file="/WEB-INF/js/tablesearch.js" %>
+        </script>
 
     </body>
 </html>
