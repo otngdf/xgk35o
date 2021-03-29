@@ -15,14 +15,14 @@ public class CustomersDao {
     private static final String DRIVER = "org.mariadb.jdbc.Driver";
     //private static final String DBURL = "jdbc:mariadb://192.168.1.120:3306/appdb?user=app&password=pass";
     //private static final String DBURL = "jdbc:mariadb://localhost:3306/appdb?user=app&password=xgk35o";
-    
+
     GetDBDao dao = new GetDBDao();
     String DBURL;
 
     public CustomersDao() throws IOException {
         this.DBURL = dao.getDB();
     }
-    
+
     public List<Customers> list() {
         List<Customers> listCustomers = new ArrayList<>();
 
@@ -31,18 +31,25 @@ public class CustomersDao {
             try (Connection con = DriverManager.getConnection(DBURL)) {
                 Statement st = con.createStatement();
                 ResultSet rs = st.executeQuery("select * from customers order by name");
-                
+
                 while (rs.next()) {
-                    int id = rs.getInt("id");
-                    String name = rs.getString("name");
-                    int zip = rs.getInt("zip");
-                    String city = rs.getString("city");
-                    String address = rs.getString("address");
-                    
-                    Customers customer = new Customers(id, name, zip, city, address);
-                    
+//                    int id = rs.getInt("id");
+//                    String name = rs.getString("name");
+//                    int zip = rs.getInt("zip");
+//                    String city = rs.getString("city");
+//                    String address = rs.getString("address");
+//                    
+//                    Customers customer = new Customers(id, name, zip, city, address);
+                    Customers customer = new Customers();
+
+                    customer.setCustomerID(rs.getInt("id"));
+                    customer.setcName(rs.getString("name"));
+                    customer.setcZip(rs.getInt("zip"));
+                    customer.setcCity(rs.getString("city"));
+                    customer.setcAddress(rs.getString("address"));
+
                     listCustomers.add(customer);
-                    
+
                 }
             }
         } catch (Exception e) {
@@ -82,7 +89,7 @@ public class CustomersDao {
             try (Connection con = DriverManager.getConnection(DBURL)) {
                 Statement st = con.createStatement();
                 ResultSet rs = st.executeQuery("select * from activities where customers_id = " + id);
-                
+
                 if (rs.next()) {
                     return true;
                 }

@@ -8,14 +8,14 @@ public class Customers {
     private String cCity;
     private String cAddress;
 
-    public Customers(int id, String name, int zip, String city, String address) {
-        super();
-        this.customerID = id;
-        this.cName = name;
-        this.cZip = zip;
-        this.cCity = city;
-        this.cAddress = address;
-    }
+//    public Customers(int id, String name, int zip, String city, String address) {
+//        super();
+//        this.customerID = id;
+//        this.cName = name;
+//        this.cZip = zip;
+//        this.cCity = city;
+//        this.cAddress = address;
+//    }
 
     public int getCustomerID() {
         return customerID;
