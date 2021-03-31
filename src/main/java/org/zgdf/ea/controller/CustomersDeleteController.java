@@ -21,12 +21,12 @@ public class CustomersDeleteController extends HttpServlet {
 
         if (dao.hasActivity(id)) {
             request.setAttribute("vanmunka", "Az ügyfélhez tartozik munka, ezért nem törölhető!");
-            RequestDispatcher rd = request.getRequestDispatcher("CustomersListController");
+            RequestDispatcher rd = request.getRequestDispatcher("CustomersListController.do");
             rd.forward(request, response);
         } else {
             dao.delete(id);
 
-            response.sendRedirect("CustomersListController");
+            response.sendRedirect("CustomersListController.do");
         }
 
     }

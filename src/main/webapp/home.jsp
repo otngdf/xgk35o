@@ -25,7 +25,7 @@
 
         <div class="container">
 
-            <form action="ModifyMyPasswordController" method="post" >
+            <form action="ModifyMyPasswordController.do" method="post" >
                 <h4>Jelszó módosítás</h4>
                 <br/>
                 <input type="password" class="form-control" maxlength="12" placeholder="Új jelszó" name="newpass" required >

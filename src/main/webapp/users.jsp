@@ -47,7 +47,7 @@
                             <td>${users.userRole}</td>
                             <td>${users.fullName}</td>
                             <td>${users.active}</td>
-                            <td><a class="btn" href="UsersActivateInactivateController?mid=${users.userID}&mactive=${users.active}">Módosítás</a></td>
+                            <td><a class="btn btn-danger" href="UsersActivateInactivateController.do?mid=${users.userID}&mactive=${users.active}">Módosítás</a></td>
                         </tr>
                     </c:forEach>
                 </tbody>
@@ -59,7 +59,7 @@
 
         <div class="container">
 
-            <form action="UsersCreateController" method="post" >
+            <form action="UsersCreateController.do" method="post" >
                 <h4>Új felhasználó rögzítése:</h4>
                 <br/>
                 <input type="text" class="form-control" maxlength="12" placeholder="Felhasználónév" name="uname" required >
@@ -84,7 +84,7 @@
 
         <div class="container">
 
-            <form action="UsersNewPasswordController" method="post" >
+            <form action="UsersNewPasswordController.do" method="post" >
                 <h4>Felhasználó jelszó módosítás:</h4>
                 <br/>
 

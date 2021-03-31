@@ -66,71 +66,79 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
-        <url-pattern>/LoginController</url-pattern>
+        <url-pattern>/LoginController.do</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>LogoutController</servlet-name>
-        <url-pattern>/LogoutController</url-pattern>
+        <url-pattern>/LogoutController.do</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>CustomersListController</servlet-name>
-        <url-pattern>/CustomersListController</url-pattern>
+        <url-pattern>/CustomersListController.do</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ActivitiesController</servlet-name>
-        <url-pattern>/ActivitiesController</url-pattern>
+        <url-pattern>/ActivitiesController.do</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>UsersListController</servlet-name>
-        <url-pattern>/UsersListController</url-pattern>
+        <url-pattern>/UsersListController.do</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ActivitiesListController</servlet-name>
-        <url-pattern>/ActivitiesListController</url-pattern>
+        <url-pattern>/ActivitiesListController.do</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ActivitiesListUserController</servlet-name>
-        <url-pattern>/ActivitiesListUserController</url-pattern>
+        <url-pattern>/ActivitiesListUserController.do</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ActivitiesStopController</servlet-name>
-        <url-pattern>/ActivitiesStopController</url-pattern>
+        <url-pattern>/ActivitiesStopController.do</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ActivitiesUserDoStopController</servlet-name>
-        <url-pattern>/ActivitiesUserDoStopController</url-pattern>
+        <url-pattern>/ActivitiesUserDoStopController.do</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>CustomersCreateController</servlet-name>
-        <url-pattern>/CustomersCreateController</url-pattern>
+        <url-pattern>/CustomersCreateController.do</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>UsersCreateController</servlet-name>
-        <url-pattern>/UsersCreateController</url-pattern>
+        <url-pattern>/UsersCreateController.do</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>CustomersDeleteController</servlet-name>
-        <url-pattern>/CustomersDeleteController</url-pattern>
+        <url-pattern>/CustomersDeleteController.do</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>UsersActivateInactivateController</servlet-name>
-        <url-pattern>/UsersActivateInactivateController</url-pattern>
+        <url-pattern>/UsersActivateInactivateController.do</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>UsersNewPasswordController</servlet-name>
-        <url-pattern>/UsersNewPasswordController</url-pattern>
+        <url-pattern>/UsersNewPasswordController.do</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ModifyMyPasswordController</servlet-name>
-        <url-pattern>/ModifyMyPasswordController</url-pattern>
+        <url-pattern>/ModifyMyPasswordController.do</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ActivitiesListDoneController</servlet-name>
-        <url-pattern>/ActivitiesListDoneController</url-pattern>
+        <url-pattern>/ActivitiesListDoneController.do</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
             1
         </session-timeout>
     </session-config>
+    <filter>
+        <filter-name>SessionFilter</filter-name>
+        <filter-class>org.zgdf.ea.filter.SessionFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>SessionFilter</filter-name>
+        <url-pattern>*.do</url-pattern>
+    </filter-mapping>
 </web-app>

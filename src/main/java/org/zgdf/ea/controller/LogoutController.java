@@ -13,20 +13,26 @@ public class LogoutController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-    
-        HttpSession session = request.getSession();
-        
-        String username = session.getAttribute("user").toString();
-        System.out.println(GetLogMessage.message() + "Sikeres logout: " + username);
-        
-        session.removeAttribute("userid");
-        session.removeAttribute("user");
-        session.removeAttribute("role");
-        session.removeAttribute("fullname");
-        session.invalidate();
-        
-        response.sendRedirect("index.jsp");
-        
-    }
+
+//        if (request.getSession(false) == null) {
+//            System.out.println(GetLogMessage.message() + "Lejart session");
+//            response.sendRedirect("index.jsp");
+//        } else {
+
+            HttpSession session = request.getSession(false);
+
+            String username = session.getAttribute("user").toString();
+
+//        session.removeAttribute("userid");
+//        session.removeAttribute("user");
+//        session.removeAttribute("role");
+//        session.removeAttribute("fullname");
+            session.invalidate();
+
+            System.out.println(GetLogMessage.message() + "Sikeres logout: " + username);
+
+            response.sendRedirect("index.jsp");
+        }
+//    }
 
 }

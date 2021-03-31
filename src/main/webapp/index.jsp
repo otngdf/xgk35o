@@ -12,7 +12,7 @@
         <br/>
 
         <div class="container">
-            <form action="LoginController" method="post">
+            <form action="LoginController.do" method="post">
                 <h3>Munkaidő nyilvántartó rendszer</h3>
                 <br/>
                 <input type="text" class="form-control" maxlength="12" placeholder="Felhasználónév" name="uname" required autofocus >

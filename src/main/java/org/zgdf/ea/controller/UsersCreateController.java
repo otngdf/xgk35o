@@ -24,7 +24,7 @@ public class UsersCreateController extends HttpServlet {
 
         dao.insert(uname, hashedPW, urole, ufullname);
 
-        response.sendRedirect("UsersListController");
+        response.sendRedirect("UsersListController.do");
         
     }
 

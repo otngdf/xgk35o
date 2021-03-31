@@ -46,7 +46,7 @@
             Állítsd be, mikor végeztél:
             <br/><br/>
 
-            <form action="ActivitiesUserDoStopController" >
+            <form action="ActivitiesUserDoStopController.do" >
 
 
                 <input type="datetime-local" class="form-control" name="date" required >

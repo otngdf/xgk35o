@@ -20,7 +20,7 @@
             <br/>
             <h3>${fullname}</h3>
 
-            <form action="ActivitiesController" >
+            <form action="ActivitiesController.do" >
 
                 <b>Helyszín</b>
                 <br/>

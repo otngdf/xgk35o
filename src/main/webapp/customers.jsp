@@ -19,7 +19,7 @@
         <div class="container">
             <br/>
             <h3>${fullname}</h3>
-            
+
             <font color="red"> ${vanmunka} </font>
 
             <br>
@@ -44,7 +44,7 @@
                             <td>${customers.cZip}</td>
                             <td>${customers.cCity}</td>
                             <td>${customers.cAddress}</td>
-                            <td><a class="btn" href="CustomersDeleteController?id=${customers.customerID}">Törlés</a></td>
+                            <td><a class="btn btn-danger" href="CustomersDeleteController.do?id=${customers.customerID}">Törlés</a></td>
                         </tr>
                     </c:forEach>
                 </tbody>
@@ -54,7 +54,7 @@
 
         <div class="container">
 
-            <form action="CustomersCreateController" >
+            <form action="CustomersCreateController.do" >
                 <h4>Új ügyfél rögzítése:</h4>
                 <br/>
                 <input type="text" class="form-control" maxlength="24" placeholder="Ügyfélnév" name="cname" required >

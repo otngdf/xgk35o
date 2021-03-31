@@ -27,13 +27,13 @@ public class ActivitiesController extends HttpServlet {
         if (dao.hasNoEnd(userid)) {
 //            response.sendRedirect("stop.jsp");
             request.setAttribute("vanbefejezetlen", "Van nem lezárt munkád, addig nem rögzíthetsz újat!");
-            RequestDispatcher rd = request.getRequestDispatcher("CustomersListController");
+            RequestDispatcher rd = request.getRequestDispatcher("CustomersListController.do");
             rd.forward(request, response);
             
         } else {
             dao.insert(userid, customer, date, activity);
 
-            response.sendRedirect("CustomersListController");
+            response.sendRedirect("CustomersListController.do");
         }
 
     }

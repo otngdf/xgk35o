@@ -31,7 +31,7 @@ public class UsersNewPasswordController extends HttpServlet {
         //rd.forward(request, response);
         
         session.setAttribute("modositva", "A jelszó módosítva az alábbi felhasználónál: " + sUser);
-        response.sendRedirect("UsersListController");
+        response.sendRedirect("UsersListController.do");
         
     }
 

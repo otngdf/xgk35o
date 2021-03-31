@@ -22,7 +22,7 @@ public class CustomersCreateController extends HttpServlet {
 
         dao.insert(cname, czip, ccity, caddress);
 
-        response.sendRedirect("CustomersListController");
+        response.sendRedirect("CustomersListController.do");
 
     }
 
