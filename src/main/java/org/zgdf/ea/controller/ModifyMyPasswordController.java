@@ -19,7 +19,7 @@ public class ModifyMyPasswordController extends HttpServlet {
         String hashedPW = HashPassword.hashedPW(newPW);
         
         UsersDao dao = new UsersDao();
-        HttpSession session = request.getSession();
+        HttpSession session = request.getSession(false);
         String sUser = (String) session.getAttribute("user");
         
         dao.modifyPassword(sUser, hashedPW);

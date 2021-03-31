@@ -16,7 +16,7 @@ public class ActivitiesUserDoStopController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        HttpSession session = request.getSession();
+        HttpSession session = request.getSession(false);
 
         String date = request.getParameter("date");
         int userid = (Integer) session.getAttribute("userid");

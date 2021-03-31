@@ -20,7 +20,7 @@ public class CustomersListController extends HttpServlet {
         
         List<Customers> listCustomers = dao.list();
         
-        HttpSession session = request.getSession();
+        HttpSession session = request.getSession(false);
         
         request.setAttribute("listCustomers", listCustomers);
         

@@ -35,7 +35,7 @@ public class UsersActivateInactivateController extends HttpServlet {
 
         dao.activateInactivate(mid, mactive);
 
-        response.sendRedirect("UsersListController");
+        response.sendRedirect("UsersListController.do");
 
     }
 

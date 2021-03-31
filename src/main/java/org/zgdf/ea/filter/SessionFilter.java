@@ -39,7 +39,6 @@ public class SessionFilter implements Filter {
             System.out.println(GetLogMessage.message() + "Lejart session");
             res.sendRedirect("index.jsp");
         } else {
-
             chain.doFilter(request, response);
         }
 

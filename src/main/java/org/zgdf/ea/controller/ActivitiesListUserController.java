@@ -16,14 +16,14 @@ public class ActivitiesListUserController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        HttpSession session = request.getSession();
+        HttpSession session = request.getSession(false);
         int uid = (Integer) session.getAttribute("userid");
-        
+
         ActivitiesDao dao = new ActivitiesDao();
         List<Activities> listActivities = dao.list(uid);
-        
+
         request.setAttribute("listActivities", listActivities);
-        
+
         request.getRequestDispatcher("activitiesuser.jsp").forward(request, response);
 
     }

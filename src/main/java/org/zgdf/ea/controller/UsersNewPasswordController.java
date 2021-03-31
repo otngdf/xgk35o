@@ -21,7 +21,7 @@ public class UsersNewPasswordController extends HttpServlet {
         String hashedPW = HashPassword.hashedPW(newPW);
         
         UsersDao dao = new UsersDao();
-        HttpSession session = request.getSession();
+        HttpSession session = request.getSession(false);
         dao.modifyPassword(sUser, hashedPW);
         
         //System.out.println(sUser + " " + newPW);
