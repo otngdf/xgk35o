@@ -25,7 +25,7 @@ public class ActivitiesUserDoStopController extends HttpServlet {
 
         dao.updateStop(userid, date);
 
-        response.sendRedirect("stop.jsp");
+        response.sendRedirect("u_stop.jsp");
     }
 
 }

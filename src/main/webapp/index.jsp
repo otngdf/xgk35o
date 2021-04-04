@@ -1,37 +1,33 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html">
     <head>
-
+        <title>IT Support</title>
         <%@ include file="/WEB-INF/jspf/head.jspf" %>
-
-        <title>Belépés</title>
     </head>
     <body>
 
-        <br/>
-
-        <div class="container">
-            <form action="LoginController.do" method="post">
-                <h3>Munkaidő nyilvántartó rendszer</h3>
-                <br/>
-                <input type="text" class="form-control" maxlength="12" placeholder="Felhasználónév" name="uname" required autofocus >
-                <br/>
-                <input type="password" class="form-control" maxlength="12" placeholder="Jelszó" name="pwd" required >
-                <br/>
-
-                <input type="submit" class="btn" value="Belépés" />
-
-            </form>
-
-            <br/>
-            <font color="red"> ${hibasuser} </font>
-
+        <div class="jumbotron text-center">
+            <h1>IT Support</h1>
+            <p>Karbantartás, vírusírtás, tanácsadás, folyamatos felügyelet, és egyedi megrendelések.</p>
+            <p>Kapcsolat: info@manit.hu</p>
         </div>
 
-        <%
-            session.removeAttribute("hibasuser");
-        %>
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-sm-4 mx-auto">
+                    <h3><a class="btn btn-secondary" href="login.jsp">Munkatársak</a></h3>
+                    <p>Tevékenység rögzítéséhez jelentkezz be.</p>
+
+                </div>
+                <div class="col-sm-4 mx-auto">
+                    <h3><a class="btn btn-secondary" href="c_login.jsp">Ügyfelek</a></h3>
+                    <p>A munkák megtekintéséhez jelentkezzen be.</p>
+
+                </div>
+
+            </div>
+        </div>
 
     </body>
 </html>

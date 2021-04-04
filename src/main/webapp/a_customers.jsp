@@ -27,10 +27,16 @@
             <br>
 
             <table class="table">
-                <caption>Ügyfelek</caption>
+                <caption>Ügyfelek
+                <font color="red">
+                    <c:out value="${sessionScope.modositva}" />
+                    </font>
+                    <c:remove var="modositva" scope="session" />
+                </caption>
                 <thead>
                 <th>ID</th>
                 <th>Ügyfélnév</th>
+                <th>Felhasznnálónév</th>
                 <th>Irsz</th>
                 <th>Város</th>
                 <th>Cím</th>
@@ -41,6 +47,7 @@
                         <tr>
                             <td>${customers.customerID}</td>
                             <td>${customers.cName}</td>
+                            <td>${customers.cUser}</td>
                             <td>${customers.cZip}</td>
                             <td>${customers.cCity}</td>
                             <td>${customers.cAddress}</td>
@@ -54,10 +61,14 @@
 
         <div class="container">
 
-            <form action="CustomersCreateController.do" >
+            <form action="CustomersCreateController.do" method="post" >
                 <h4>Új ügyfél rögzítése:</h4>
                 <br/>
                 <input type="text" class="form-control" maxlength="24" placeholder="Ügyfélnév" name="cname" required >
+                <br/>
+                <input type="text" class="form-control" maxlength="12" placeholder="Felhasználónév" name="cuser" required >
+                <br/>
+                <input type="password" class="form-control" maxlength="12" placeholder="Jelszó" name="cpass" required >
                 <br/>
                 <input type="text" class="form-control" maxlength="24" placeholder="Irsz" name="czip" required >
                 <br/>
@@ -68,6 +79,31 @@
 
                 <input type="submit" class="btn" value="Rögzít" />
 
+
+            </form>
+
+        </div>
+
+        <br/>
+
+        <div class="container">
+
+            <form action="CustomersNewPasswordController.do" method="post" >
+                <h4>Ügyfél jelszó módosítás:</h4>
+                <br/>
+
+                <select id="selectedUser" name="selectedUser">
+                    <c:forEach var="customers" items="${listCustomers}">
+                        <option value="${customers.cUser}">${customers.cUser}@${customers.cName}</option>
+                    </c:forEach>
+                </select>
+                <br/>
+
+                <br/>
+                <input type="password" class="form-control" maxlength="12" placeholder="Új jelszó" name="newpass" required >
+                <br/>
+
+                <input type="submit" class="btn" value="Módosít" />
 
             </form>
 

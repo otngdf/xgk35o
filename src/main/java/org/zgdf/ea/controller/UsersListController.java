@@ -25,7 +25,7 @@ public class UsersListController extends HttpServlet {
 
         request.setAttribute("listUsers", listUsers);
 
-        request.getRequestDispatcher("users.jsp").forward(request, response);
+        request.getRequestDispatcher("a_users.jsp").forward(request, response);
     }
 
 }

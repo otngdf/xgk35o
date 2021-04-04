@@ -7,6 +7,24 @@ public class Customers {
     private int cZip;
     private String cCity;
     private String cAddress;
+    private String cUser;
+
+    public String getcUser() {
+        return cUser;
+    }
+
+    public void setcUser(String cUser) {
+        this.cUser = cUser;
+    }
+
+    public String getcPass() {
+        return cPass;
+    }
+
+    public void setcPass(String cPass) {
+        this.cPass = cPass;
+    }
+    private String cPass;
 
 //    public Customers(int id, String name, int zip, String city, String address) {
 //        super();
@@ -16,7 +34,6 @@ public class Customers {
 //        this.cCity = city;
 //        this.cAddress = address;
 //    }
-
     public int getCustomerID() {
         return customerID;
     }
@@ -59,7 +76,7 @@ public class Customers {
 
     @Override
     public String toString() {
-        return "Customers{" + "customerID=" + customerID + ", cName=" + cName + ", cZip=" + cZip + ", cCity=" + cCity + ", cAddress=" + cAddress + '}';
+        return "Customers{" + "customerID=" + customerID + ", cName=" + cName + ", cZip=" + cZip + ", cCity=" + cCity + ", cAddress=" + cAddress + ", cUser=" + cUser + ", cPass=" + cPass + '}';
     }
 
 }

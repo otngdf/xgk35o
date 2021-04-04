@@ -1,32 +1,31 @@
 package org.zgdf.ea.controller;
 
 import java.io.IOException;
+//import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import org.zgdf.ea.db.UsersDao;
+import org.zgdf.ea.db.CustomersDao;
 import org.zgdf.ea.utils.HashPassword;
 
-public class ModifyMyPasswordController extends HttpServlet {
+public class CustomersNewPasswordController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        String sUser = request.getParameter("selectedUser");
         String newPW = request.getParameter("newpass");
         String hashedPW = HashPassword.hashedPW(newPW);
         
-        UsersDao dao = new UsersDao();
+        CustomersDao dao = new CustomersDao();
         HttpSession session = request.getSession(false);
-        String sUser = (String) session.getAttribute("user");
-        
         dao.modifyPassword(sUser, hashedPW);
         
-      
-        session.setAttribute("modositva", "A jelszó módosítva!");
-        response.sendRedirect("a_home.jsp");
+        session.setAttribute("modositva", "A jelszó módosítva az alábbi felhasználónál: " + sUser);
+        response.sendRedirect("CustomersListController.do");
         
     }
 

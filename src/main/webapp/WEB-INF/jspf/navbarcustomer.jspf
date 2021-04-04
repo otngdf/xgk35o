@@ -5,11 +5,8 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <a class="nav-item nav-link" href="a_home.jsp">Home</a>
-      <a class="nav-item nav-link" href="CustomersListController.do">Ügyfelek</a>
-      <a class="nav-item nav-link" href="UsersListController.do">Munkatársak</a>
-      <a class="nav-item nav-link" href="ActivitiesListController.do">Munkák folyamatban</a>
-      <a class="nav-item nav-link" href="ActivitiesListDoneController.do">Munkák befejezve</a>
+      <a class="nav-item nav-link" href="c_home.jsp">Home</a>
+      <a class="nav-item nav-link" href="ActivitiesListCustomerController.do">Munkák</a>
       <a class="nav-item nav-link" href="LogoutController.do">Kilépés</a>
     </div>
   </div>

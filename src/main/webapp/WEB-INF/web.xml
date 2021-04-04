@@ -5,6 +5,10 @@
         <servlet-class>org.zgdf.ea.controller.LoginController</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>LoginCustomersController</servlet-name>
+        <servlet-class>org.zgdf.ea.controller.LoginCustomersController</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>LogoutController</servlet-name>
         <servlet-class>org.zgdf.ea.controller.LogoutController</servlet-class>
     </servlet>
@@ -27,6 +31,10 @@
     <servlet>
         <servlet-name>ActivitiesListUserController</servlet-name>
         <servlet-class>org.zgdf.ea.controller.ActivitiesListUserController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ActivitiesListCustomerController</servlet-name>
+        <servlet-class>org.zgdf.ea.controller.ActivitiesListCustomerController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ActivitiesStopController</servlet-name>
@@ -57,8 +65,16 @@
         <servlet-class>org.zgdf.ea.controller.UsersNewPasswordController</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>CustomersNewPasswordController</servlet-name>
+        <servlet-class>org.zgdf.ea.controller.CustomersNewPasswordController</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>ModifyMyPasswordController</servlet-name>
         <servlet-class>org.zgdf.ea.controller.ModifyMyPasswordController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ModifyMyCustomerPasswordController</servlet-name>
+        <servlet-class>org.zgdf.ea.controller.ModifyMyCustomerPasswordController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ActivitiesListDoneController</servlet-name>
@@ -67,6 +83,10 @@
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/LoginController.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoginCustomersController</servlet-name>
+        <url-pattern>/LoginCustomersController.do</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>LogoutController</servlet-name>
@@ -91,6 +111,10 @@
     <servlet-mapping>
         <servlet-name>ActivitiesListUserController</servlet-name>
         <url-pattern>/ActivitiesListUserController.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ActivitiesListCustomerController</servlet-name>
+        <url-pattern>/ActivitiesListCustomerController.do</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ActivitiesStopController</servlet-name>
@@ -121,8 +145,16 @@
         <url-pattern>/UsersNewPasswordController.do</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>CustomersNewPasswordController</servlet-name>
+        <url-pattern>/CustomersNewPasswordController.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>ModifyMyPasswordController</servlet-name>
         <url-pattern>/ModifyMyPasswordController.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ModifyMyCustomerPasswordController</servlet-name>
+        <url-pattern>/ModifyMyCustomerPasswordController.do</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ActivitiesListDoneController</servlet-name>

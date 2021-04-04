@@ -24,7 +24,7 @@ public class ActivitiesStopController extends HttpServlet {
         
         request.setAttribute("listActivities", listActivities);
         
-        request.getRequestDispatcher("stop.jsp").forward(request, response);
+        request.getRequestDispatcher("u_stop.jsp").forward(request, response);
 
     }
 

@@ -18,21 +18,27 @@ public class LogoutController extends HttpServlet {
 //            System.out.println(GetLogMessage.message() + "Lejart session");
 //            response.sendRedirect("index.jsp");
 //        } else {
+        HttpSession session = request.getSession(false);
 
-            HttpSession session = request.getSession(false);
+        String username = session.getAttribute("user").toString();
 
-            String username = session.getAttribute("user").toString();
+        String logoutpage = "index.jsp";
+        if (session.getAttribute("role") == null) {
+            logoutpage = "c_login.jsp";
+        } else {
+            logoutpage = "login.jsp";
+        }
 
 //        session.removeAttribute("userid");
 //        session.removeAttribute("user");
 //        session.removeAttribute("role");
 //        session.removeAttribute("fullname");
-            session.invalidate();
+        session.invalidate();
 
-            System.out.println(GetLogMessage.message() + "Sikeres logout: " + username);
+        System.out.println(GetLogMessage.message() + "Sikeres logout: " + username);
 
-            response.sendRedirect("index.jsp");
-        }
+        response.sendRedirect(logoutpage);
+    }
 //    }
 
 }

@@ -2,6 +2,6 @@
     response.setHeader("Cache-control", "no-cache, no-store, must-revalidate");
 
     if (session.getAttribute("user") == null) {
-        response.sendRedirect("index.jsp");
+        response.sendRedirect("login.jsp");
     }
 %>

@@ -198,5 +198,40 @@ public class ActivitiesDao {
 
         return listActivities;
     }
+    
+        public List<Activities> list(int cid, String cuser) {
+        List<Activities> listActivities = new ArrayList<>();
+
+        try {
+            Class.forName(DRIVER);
+            try (Connection con = DriverManager.getConnection(DBURL)) {
+                Statement st = con.createStatement();
+                ResultSet rs = st.executeQuery("select a.id, u.name, c.name, a.start, a.stop, a.comment from activities a, users u, customers c\n"
+                        + "where c.id = " + cid + "\n"
+                        + "and a.users_id = u.id\n"
+                        + "and a.customers_id = c.id\n"
+                        + "order by a.id desc");
+
+                while (rs.next()) {
+
+                    Activities activity = new Activities();
+
+                    activity.setActivityID(rs.getInt("a.id"));
+                    activity.setuName(rs.getString("u.name"));
+                    activity.setcName(rs.getString("c.name"));
+                    activity.setStart(rs.getString("a.start"));
+                    activity.setStop(rs.getString("a.stop"));
+                    activity.setComment(rs.getString("a.comment"));
+
+                    listActivities.add(activity);
+
+                }
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
+        return listActivities;
+    }
 
 }

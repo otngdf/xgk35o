@@ -20,7 +20,7 @@ public class ActivitiesListController extends HttpServlet {
         
         request.setAttribute("listActivities", listActivities);
         
-        request.getRequestDispatcher("activities.jsp").forward(request, response);
+        request.getRequestDispatcher("a_activities.jsp").forward(request, response);
 
     }
 

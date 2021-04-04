@@ -7,5 +7,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
-    body{padding-bottom:50px};
+    body{
+        padding-top: 65px;;
+        padding-bottom:50px;
+    }
 </style>

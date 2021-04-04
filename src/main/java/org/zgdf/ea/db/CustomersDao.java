@@ -44,6 +44,7 @@ public class CustomersDao {
 
                     customer.setCustomerID(rs.getInt("id"));
                     customer.setcName(rs.getString("name"));
+                    customer.setcUser(rs.getString("username"));
                     customer.setcZip(rs.getInt("zip"));
                     customer.setcCity(rs.getString("city"));
                     customer.setcAddress(rs.getString("address"));
@@ -59,12 +60,13 @@ public class CustomersDao {
         return listCustomers;
     }
 
-    public void insert(String cname, int czip, String ccity, String caddress) {
+    public void insert(String cname, int czip, String ccity, String caddress, String cuser, String cpass) {
         try {
             Class.forName(DRIVER);
             try (Connection con = DriverManager.getConnection(DBURL)) {
                 Statement st = con.createStatement();
-                st.executeUpdate("insert into customers (name,zip,city,address) values ('" + cname + "' ," + czip + ",'" + ccity + "','" + caddress + "')");
+                st.executeUpdate("insert into customers (name,zip,city,address,username,pass) values ('" + cname + "' ," + czip + ",'" + ccity + "','" + caddress + "','" + cuser + "','" + cpass + "')");
+
             }
         } catch (Exception e) {
             System.out.println(e);
@@ -99,6 +101,42 @@ public class CustomersDao {
         }
 
         return false;
+    }
+
+    public void modifyPassword(String suser, String newpassword) {
+        try {
+            Class.forName(DRIVER);
+            try (Connection con = DriverManager.getConnection(DBURL)) {
+                Statement st = con.createStatement();
+                st.executeUpdate("update customers set pass = '" + newpassword + "' where username = '" + suser + "'");
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
+    public Customers getCustomer(String u, String p) {
+
+        Customers customer = new Customers();
+
+        try {
+            Class.forName(DRIVER);
+            try (Connection con = DriverManager.getConnection(DBURL)) {
+                Statement st = con.createStatement();
+                ResultSet rs = st.executeQuery("select * from customers where username = '" + u + "' and pass = '" + p + "'");
+
+                if (rs.next()) {
+                    customer.setCustomerID(rs.getInt("id"));
+                    customer.setcName(rs.getString("name"));
+                    customer.setcUser(rs.getString("username"));
+                }
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
+        return customer;
+
     }
 
 }

@@ -24,7 +24,7 @@ public class ActivitiesListUserController extends HttpServlet {
 
         request.setAttribute("listActivities", listActivities);
 
-        request.getRequestDispatcher("activitiesuser.jsp").forward(request, response);
+        request.getRequestDispatcher("u_activities.jsp").forward(request, response);
 
     }
 

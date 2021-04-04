@@ -43,7 +43,7 @@ public class LoginController extends HttpServlet {
 
 //            RequestDispatcher rd = request.getRequestDispatcher("welcome.jsp");
 //            rd.forward(request, response);
-            response.sendRedirect("home.jsp");
+            response.sendRedirect("u_home.jsp");
         } else if (u.getUserName() != null && u.getUserRole().equals("admin")) {
             session.setAttribute("userid", u.getUserID());
             session.setAttribute("user", u.getUserName());
@@ -52,13 +52,13 @@ public class LoginController extends HttpServlet {
             session.setAttribute("verzio", v);
             System.out.println(GetLogMessage.message() + "Sikeres login: " + username);
 
-            response.sendRedirect("homeadmin.jsp");
+            response.sendRedirect("a_home.jsp");
         } else {
 //            RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
 //            rd.forward(request, response);
             System.out.println(GetLogMessage.message() + "Sikertelen login: " + username);
             session.setAttribute("hibasuser", "Nem megfelelő felhasználónév vagy jelszó!");
-            response.sendRedirect("index.jsp");
+            response.sendRedirect("login.jsp");
         }
 
     }

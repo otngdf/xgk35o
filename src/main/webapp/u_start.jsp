@@ -22,7 +22,7 @@
 
             <form action="ActivitiesController.do" >
 
-                <b>Helyszín</b>
+                <b>Ügyfél</b>
                 <br/>
                 <select class="form-control" name="customer" >
                     <c:forEach items="${listCustomers}" var="customers">

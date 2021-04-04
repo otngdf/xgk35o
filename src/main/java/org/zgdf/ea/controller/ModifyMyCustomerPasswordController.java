@@ -6,10 +6,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import org.zgdf.ea.db.UsersDao;
+import org.zgdf.ea.db.CustomersDao;
 import org.zgdf.ea.utils.HashPassword;
 
-public class ModifyMyPasswordController extends HttpServlet {
+public class ModifyMyCustomerPasswordController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -18,7 +18,7 @@ public class ModifyMyPasswordController extends HttpServlet {
         String newPW = request.getParameter("newpass");
         String hashedPW = HashPassword.hashedPW(newPW);
         
-        UsersDao dao = new UsersDao();
+        CustomersDao dao = new CustomersDao();
         HttpSession session = request.getSession(false);
         String sUser = (String) session.getAttribute("user");
         
@@ -26,7 +26,7 @@ public class ModifyMyPasswordController extends HttpServlet {
         
       
         session.setAttribute("modositva", "A jelszó módosítva!");
-        response.sendRedirect("a_home.jsp");
+        response.sendRedirect("c_home.jsp");
         
     }
 
