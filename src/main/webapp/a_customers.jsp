@@ -14,7 +14,7 @@
 
         <%@ include file="/WEB-INF/jspf/mustadmin.jspf" %>
 
-        <%@ include file="/WEB-INF/jspf/navbaradmin.jspf" %>
+        <%@ include file="/WEB-INF/jspf/a_navbar.jspf" %>
 
         <div class="container">
             <br/>
@@ -28,7 +28,7 @@
 
             <table class="table">
                 <caption>Ügyfelek
-                <font color="red">
+                    <font color="red">
                     <c:out value="${sessionScope.modositva}" />
                     </font>
                     <c:remove var="modositva" scope="session" />

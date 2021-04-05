@@ -14,7 +14,7 @@
 
         <%@ include file="/WEB-INF/jspf/mustlogin.jspf" %>
 
-        <%@ include file="/WEB-INF/jspf/navbarcustomer.jspf" %>
+        <%@ include file="/WEB-INF/jspf/c_navbar.jspf" %>
 
         <div class="container">
             <br/>

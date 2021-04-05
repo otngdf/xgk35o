@@ -13,7 +13,7 @@
 
         <%@ include file="/WEB-INF/jspf/mustadmin.jspf" %>
 
-        <%@ include file="/WEB-INF/jspf/navbaradmin.jspf" %>
+        <%@ include file="/WEB-INF/jspf/a_navbar.jspf" %>
 
         <div class="container">
             <br/>
