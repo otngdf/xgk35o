@@ -21,10 +21,10 @@ public class LoginController extends HttpServlet {
         String username = request.getParameter("uname");
         String password = request.getParameter("pwd");
         String hashedPW = HashPassword.hashedPW(password);
-        
+
         UsersDao dao = new UsersDao();
         Users u = dao.getUser(username, hashedPW);
-        
+
         VersionDao daov = new VersionDao();
         String v = daov.showVersion();
 //        System.out.println(v);

@@ -26,7 +26,7 @@ public class LoginCustomersController extends HttpServlet {
 
         HttpSession session = request.getSession();
 
-        if (c.getcUser() != null ) {
+        if (c.getcUser() != null) {
 
             session.setAttribute("id", c.getCustomerID());
             session.setAttribute("name", c.getcName());
@@ -34,8 +34,7 @@ public class LoginCustomersController extends HttpServlet {
             System.out.println(GetLogMessage.message() + "Sikeres customer login: " + username);
 
             response.sendRedirect("c_home.jsp");
-        }else
-        {
+        } else {
             System.out.println(GetLogMessage.message() + "Sikertelen customer login: " + username);
             session.setAttribute("hibasuser", "Nem megfelelő felhasználónév vagy jelszó!");
             response.sendRedirect("c_login.jsp");

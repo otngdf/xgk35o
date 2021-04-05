@@ -21,7 +21,7 @@ public class ActivitiesListCustomerController extends HttpServlet {
         String cuser = (String) session.getAttribute("user");
 
         ActivitiesDao dao = new ActivitiesDao();
-        List<Activities> listActivities = dao.list(cid,cuser);
+        List<Activities> listActivities = dao.list(cid, cuser);
 
         request.setAttribute("listActivities", listActivities);
 

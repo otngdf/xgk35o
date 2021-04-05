@@ -15,15 +15,15 @@ public class ActivitiesStopController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         HttpSession session = request.getSession(false);
         int uid = (Integer) session.getAttribute("userid");
-        
+
         ActivitiesDao dao = new ActivitiesDao();
         List<Activities> listActivities = dao.listWhatHasNoEnd(uid);
-        
+
         request.setAttribute("listActivities", listActivities);
-        
+
         request.getRequestDispatcher("u_stop.jsp").forward(request, response);
 
     }

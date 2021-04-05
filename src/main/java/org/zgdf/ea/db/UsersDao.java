@@ -8,18 +8,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UsersDao {
-    
+
     private static final String DRIVER = "org.mariadb.jdbc.Driver";
     //private static final String DBURL = "jdbc:mariadb://192.168.1.120:3306/appdb?user=app&password=pass";
     //private static final String DBURL = "jdbc:mariadb://localhost:3306/appdb?user=app&password=xgk35o";
-    
+
     GetDBDao dao = new GetDBDao();
     String DBURL;
 
     public UsersDao() throws IOException {
         this.DBURL = dao.getDB();
     }
-    
+
     public Users getUser(String u, String p) {
 
         Users user = new Users();
@@ -31,7 +31,7 @@ public class UsersDao {
             try (Connection con = DriverManager.getConnection(DBURL)) {
                 Statement st = con.createStatement();
                 ResultSet rs = st.executeQuery("select * from users where active = 1 and name = '" + u + "' and pass = '" + p + "'");
-                
+
                 if (rs.next()) {
                     user.setUserID(rs.getInt("id"));
                     user.setUserName(rs.getString("name"));
@@ -56,7 +56,7 @@ public class UsersDao {
             try (Connection con = DriverManager.getConnection(DBURL)) {
                 Statement st = con.createStatement();
                 ResultSet rs = st.executeQuery("select * from users order by id");
-                
+
                 while (rs.next()) {
                     Users user = new Users();
                     user.setUserID(rs.getInt("id"));
@@ -64,9 +64,9 @@ public class UsersDao {
                     user.setUserRole(rs.getString("role"));
                     user.setActive(rs.getInt("active"));
                     user.setFullName(rs.getString("fullname"));
-                    
+
                     listUsers.add(user);
-                    
+
                 }
             }
         } catch (Exception e) {
@@ -75,7 +75,7 @@ public class UsersDao {
 
         return listUsers;
     }
-    
+
     public void insert(String uname, String upass, String urole, String ufullname) {
         try {
             Class.forName(DRIVER);
@@ -87,7 +87,7 @@ public class UsersDao {
             System.out.println(e);
         }
     }
-    
+
     public void activateInactivate(int id, int active) {
         try {
             Class.forName(DRIVER);
@@ -99,8 +99,8 @@ public class UsersDao {
             System.out.println(e);
         }
     }
-    
-        public void modifyPassword(String suser, String newpassword) {
+
+    public void modifyPassword(String suser, String newpassword) {
         try {
             Class.forName(DRIVER);
             try (Connection con = DriverManager.getConnection(DBURL)) {

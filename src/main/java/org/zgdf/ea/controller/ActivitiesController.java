@@ -29,7 +29,7 @@ public class ActivitiesController extends HttpServlet {
             request.setAttribute("vanbefejezetlen", "Van nem lezárt munkád, addig nem rögzíthetsz újat!");
             RequestDispatcher rd = request.getRequestDispatcher("CustomersListController.do");
             rd.forward(request, response);
-            
+
         } else {
             dao.insert(userid, customer, date, activity);
 

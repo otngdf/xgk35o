@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package org.zgdf.ea.filter;
 
 import java.io.IOException;
@@ -17,10 +12,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.zgdf.ea.utils.GetLogMessage;
 
-/**
- *
- * @author User
- */
 //@WebFilter(urlPatterns = "*.do")
 public class SessionFilter implements Filter {
 

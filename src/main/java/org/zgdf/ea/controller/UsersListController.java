@@ -9,10 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 import org.zgdf.ea.db.UsersDao;
 import org.zgdf.ea.model.Users;
 
-/**
- *
- * @author User
- */
 public class UsersListController extends HttpServlet {
 
     @Override

@@ -12,10 +12,10 @@ public class VersionDao {
     private static final String DRIVER = "org.mariadb.jdbc.Driver";
     //private static final String DBURL = "jdbc:mariadb://192.168.1.120:3306/appdb?user=app&password=pass";
     //private static final String DBURL = "jdbc:mariadb://localhost:3306/appdb?user=app&password=xgk35o";
-    
+
     GetDBDao dao = new GetDBDao();
     String DBURL;
-        
+
     public VersionDao() throws IOException {
         this.DBURL = dao.getDB();
     }
@@ -26,11 +26,11 @@ public class VersionDao {
             try (Connection con = DriverManager.getConnection(DBURL)) {
                 Statement st = con.createStatement();
                 ResultSet rs = st.executeQuery("select * from version");
-                
+
                 String version;
-                
+
                 if (rs.next()) {
-                    
+
                     version = rs.getString("version");
                     return version;
                 }

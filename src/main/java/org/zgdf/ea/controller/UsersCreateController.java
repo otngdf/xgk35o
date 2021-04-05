@@ -19,13 +19,13 @@ public class UsersCreateController extends HttpServlet {
         String urole = request.getParameter("urole");
         String ufullname = request.getParameter("ufullname");
         String hashedPW = HashPassword.hashedPW(upass);
-        
+
         UsersDao dao = new UsersDao();
 
         dao.insert(uname, hashedPW, urole, ufullname);
 
         response.sendRedirect("UsersListController.do");
-        
+
     }
 
 }

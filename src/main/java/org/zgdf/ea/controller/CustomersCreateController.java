@@ -18,11 +18,11 @@ public class CustomersCreateController extends HttpServlet {
         int czip = Integer.parseInt(request.getParameter("czip"));
         String ccity = request.getParameter("ccity");
         String caddress = request.getParameter("caddress");
-        
+
         String cuser = request.getParameter("cuser");
         String cpass = request.getParameter("cpass");
         String hashedPW = HashPassword.hashedPW(cpass);
-        
+
         CustomersDao dao = new CustomersDao();
 
         dao.insert(cname, czip, ccity, caddress, cuser, hashedPW);

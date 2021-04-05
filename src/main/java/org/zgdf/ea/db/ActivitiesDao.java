@@ -198,8 +198,8 @@ public class ActivitiesDao {
 
         return listActivities;
     }
-    
-        public List<Activities> list(int cid, String cuser) {
+
+    public List<Activities> list(int cid, String cuser) {
         List<Activities> listActivities = new ArrayList<>();
 
         try {

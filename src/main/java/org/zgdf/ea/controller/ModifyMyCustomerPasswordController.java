@@ -17,17 +17,16 @@ public class ModifyMyCustomerPasswordController extends HttpServlet {
 
         String newPW = request.getParameter("newpass");
         String hashedPW = HashPassword.hashedPW(newPW);
-        
+
         CustomersDao dao = new CustomersDao();
         HttpSession session = request.getSession(false);
         String sUser = (String) session.getAttribute("user");
-        
+
         dao.modifyPassword(sUser, hashedPW);
-        
-      
+
         session.setAttribute("modositva", "A jelszó módosítva!");
         response.sendRedirect("c_home.jsp");
-        
+
     }
 
 }

@@ -17,9 +17,9 @@ public class ActivitiesListDoneController extends HttpServlet {
 
         ActivitiesDao dao = new ActivitiesDao();
         List<Activities> listActivities = dao.listDone();
-        
+
         request.setAttribute("listActivities", listActivities);
-        
+
         request.getRequestDispatcher("a_activities.jsp").forward(request, response);
 
     }
