@@ -1,3 +1,4 @@
+//deprecated, GetDSDao use
 package org.zgdf.ea.utils;
 
 import java.io.FileInputStream;
