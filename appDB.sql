@@ -26,12 +26,6 @@ add COLUMN `pass` char(128) NOT NULL;
 ALTER TABLE `customers` DROP INDEX `name`;
 ALTER TABLE `customers` ADD UNIQUE `name`(`name`, `username`);
 
-alter table appdb.customers
-add COLUMN `username` varchar(12) NOT NULL,
-add COLUMN `pass` char(128) NOT NULL;
-ALTER TABLE `customers` DROP INDEX `name`;
-ALTER TABLE `customers` ADD UNIQUE `name`(`name`, `username`);
-
 CREATE TABLE IF NOT EXISTS activities (
 	id int UNSIGNED PRIMARY KEY AUTO_INCREMENT,
     users_id smallint UNSIGNED NOT NULL,
