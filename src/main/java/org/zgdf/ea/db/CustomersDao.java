@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.zgdf.ea.model.Customers;
 import org.zgdf.ea.utils.GetDSDao;
+import org.zgdf.ea.utils.GetLogMessage;
 
 public class CustomersDao {
 
@@ -101,7 +102,7 @@ public class CustomersDao {
                 customer.setcUser(rs.getString("username"));
             }
         } catch (Exception e) {
-            System.out.println(e);
+            System.out.println(GetLogMessage.message() + "Adatbazis muvelet sikertelen: " + e);
         }
         return customer;
     }

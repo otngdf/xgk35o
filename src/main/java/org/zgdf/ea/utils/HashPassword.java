@@ -21,6 +21,7 @@ public class HashPassword {
             hashedPassword = sb.toString();
         } 
         catch (NoSuchAlgorithmException e) {
+            System.out.println(e);
         }
         return hashedPassword;
     }

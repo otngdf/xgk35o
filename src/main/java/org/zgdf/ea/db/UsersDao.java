@@ -5,6 +5,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import org.zgdf.ea.utils.GetDSDao;
+import org.zgdf.ea.utils.GetLogMessage;
 
 public class UsersDao {
 
@@ -35,7 +36,7 @@ public class UsersDao {
 //                System.out.println("a user: " + rs.getString("user"));
             }
         } catch (Exception e) {
-            System.out.println(e);
+            System.out.println(GetLogMessage.message() + "Adatbazis muvelet sikertelen: " + e);
         }
         return user;
     }
