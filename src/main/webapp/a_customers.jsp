@@ -70,7 +70,7 @@
                 <br/>
                 <input type="password" class="form-control" maxlength="12" placeholder="Jelszó" name="cpass" required >
                 <br/>
-                <input type="text" class="form-control" maxlength="24" placeholder="Irsz" name="czip" required >
+                <input type="text" class="form-control" maxlength="6" placeholder="Irsz" name="czip" required >
                 <br/>
                 <input type="text" class="form-control" maxlength="24" placeholder="Város" name="ccity" required >
                 <br/>

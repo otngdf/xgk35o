@@ -39,7 +39,7 @@
                 <b>Tevékenység</b>
                 <br/>
 
-                <textarea name="activity" class="form-control" placeholder="Megjegyzés" rows="4" ></textarea>
+                <textarea name="activity" class="form-control" maxlength="80" placeholder="Megjegyzés" rows="4" required></textarea>
 
                 <br/>
                 <button type="submit" class="btn">Küld</button>
