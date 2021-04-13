@@ -15,11 +15,19 @@ public class GetDSDao {
     public GetDSDao() throws NamingException {
         this.ctx = new InitialContext();
         this.ds = (DataSource) ctx.lookup("java:/MunkaidoDB");
-
     }
 
+    /**
+     * Alkalmazasszerver adatbazis kapcsolat.
+     * <p>
+     * Visszaadja.
+     *
+     * @author xgk35o
+     * @return adatbazis kapcsolat
+     * @throws java.sql.SQLException
+     */
+    
     public Connection getCON() throws SQLException {
         return ds.getConnection();
     }
-
 }
