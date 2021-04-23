@@ -173,4 +173,5 @@
         <filter-name>SessionFilter</filter-name>
         <url-pattern>*.do</url-pattern>
     </filter-mapping>
+    <distributable/>
 </web-app>

@@ -9,7 +9,7 @@
 
         <div class="jumbotron text-center">
             <h1>IT Support</h1>
-            <p>Karbantartás, vírusírtás, tanácsadás, folyamatos felügyelet, és egyedi megrendelések.</p>
+            <p>Karbantartás, vírusírtás, tanácsadás, folyamatos felügyelet és egyedi megrendelések.</p>
             <p>Kapcsolat: info@manit.hu</p>
             <p><font color="red">Demó oldal!</font></p>
         </div>
