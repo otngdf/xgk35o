@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.zgdf.ea.db.ActivitiesDao;
 import org.zgdf.ea.model.Activities;
+import org.zgdf.ea.utils.GetLogMessage;
 
 public class ActivitiesListCustomerController extends HttpServlet {
 
@@ -24,6 +25,8 @@ public class ActivitiesListCustomerController extends HttpServlet {
         List<Activities> listActivities = dao.list(cid, cuser);
 
         request.setAttribute("listActivities", listActivities);
+        
+        System.out.println(GetLogMessage.message() + "Tevekenyseg lekerdezes ugyfel altal: " + cuser);
 
         request.getRequestDispatcher("c_activities.jsp").forward(request, response);
 

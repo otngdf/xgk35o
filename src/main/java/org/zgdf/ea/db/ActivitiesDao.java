@@ -1,6 +1,7 @@
 package org.zgdf.ea.db;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -13,8 +14,16 @@ public class ActivitiesDao {
     public void insert(int uid, int cid, String date, String comment) {
 
         try (Connection con = new GetDSDao().getCON()) {
-            Statement st = con.createStatement();
-            st.executeUpdate("insert into activities (users_id,customers_id,start,comment) values (" + uid + "," + cid + ",'" + date + "','" + comment + "')");
+            //Statement st = con.createStatement();
+            //st.executeUpdate("insert into activities (users_id,customers_id,start,comment) values (" + uid + "," + cid + ",'" + date + "','" + comment + "')");
+
+            PreparedStatement st = con.prepareStatement("insert into activities (users_id,customers_id,start,comment) values ( ? , ?, ?, ?)");
+
+            st.setInt(1, uid);
+            st.setInt(2, cid);
+            st.setString(3, date);
+            st.setString(4, comment);
+            st.executeUpdate();
         } catch (Exception e) {
             System.out.println(e);
         }

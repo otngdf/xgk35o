@@ -1,6 +1,7 @@
 package org.zgdf.ea.db;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -46,8 +47,18 @@ public class CustomersDao {
     public void insert(String cname, int czip, String ccity, String caddress, String cuser, String cpass) {
 
         try (Connection con = new GetDSDao().getCON()) {
-            Statement st = con.createStatement();
-            st.executeUpdate("insert into customers (name,zip,city,address,username,pass) values ('" + cname + "' ," + czip + ",'" + ccity + "','" + caddress + "','" + cuser + "','" + cpass + "')");
+            //Statement st = con.createStatement();
+            //st.executeUpdate("insert into customers (name,zip,city,address,username,pass) values ('" + cname + "' ," + czip + ",'" + ccity + "','" + caddress + "','" + cuser + "','" + cpass + "')");
+
+            PreparedStatement st = con.prepareStatement("insert into customers (name,zip,city,address,username,pass) values ( ?, ?, ?, ?, ?, ?)");
+
+            st.setString(1, cname);
+            st.setInt(2, czip);
+            st.setString(3, ccity);
+            st.setString(4, caddress);
+            st.setString(5, cuser);
+            st.setString(6, cpass);
+            st.executeUpdate();
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -81,8 +92,14 @@ public class CustomersDao {
     public void modifyPassword(String suser, String newpassword) {
 
         try (Connection con = new GetDSDao().getCON()) {
-            Statement st = con.createStatement();
-            st.executeUpdate("update customers set pass = '" + newpassword + "' where username = '" + suser + "'");
+            //Statement st = con.createStatement();
+            //st.executeUpdate("update customers set pass = '" + newpassword + "' where username = '" + suser + "'");
+
+            PreparedStatement st = con.prepareStatement("update customers set pass = ? where username = ?");
+
+            st.setString(1, newpassword);
+            st.setString(2, suser);
+            st.executeUpdate();
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -93,8 +110,14 @@ public class CustomersDao {
         Customers customer = new Customers();
 
         try (Connection con = new GetDSDao().getCON()) {
-            Statement st = con.createStatement();
-            ResultSet rs = st.executeQuery("select * from customers where username = '" + u + "' and pass = '" + p + "'");
+            //Statement st = con.createStatement();
+            //ResultSet rs = st.executeQuery("select * from customers where username = '" + u + "' and pass = '" + p + "'");
+
+            PreparedStatement st = con.prepareStatement("select * from customers where username = ? and pass = ?");
+
+            st.setString(1, u);
+            st.setString(2, p);
+            ResultSet rs = st.executeQuery();
 
             if (rs.next()) {
                 customer.setCustomerID(rs.getInt("id"));

@@ -14,12 +14,14 @@ public class UsersCreateController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        //request.setCharacterEncoding("UTF-8");
         String uname = request.getParameter("uname");
         String upass = request.getParameter("upass");
         String urole = request.getParameter("urole");
         String ufullname = request.getParameter("ufullname");
         String hashedPW = HashPassword.hashedPW(upass);
 
+        //System.out.println(ufullname);
         UsersDao dao = new UsersDao();
 
         dao.insert(uname, hashedPW, urole, ufullname);

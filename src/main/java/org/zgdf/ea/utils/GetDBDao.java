@@ -11,10 +11,10 @@ public class GetDBDao {
     /**
      * Adatbazis kapcsolat fajlbol.
      * <p>
-     * Visszaadja.
+     * Property fájlban rögzített adatbázis url beolvasása.
      *
      * @author xgk35o
-     * @return adatbazis kapcsolat
+     * @return DBURL
      * @throws java.io.FileNotFoundException
      * @deprecated GetDSDao van helyette.
      */
