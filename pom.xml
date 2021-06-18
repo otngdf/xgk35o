@@ -3,11 +3,11 @@
     <modelVersion>4.0.0</modelVersion>
     <!-- 2020.03. -->
     <groupId>org.zgdf</groupId>
-    <artifactId>xkg35o</artifactId>
+    <artifactId>xgk35o</artifactId>
     <version>1.0</version>
     <packaging>war</packaging>
 
-    <name>xkg35o</name>
+    <name>xgk35o</name>
 
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
