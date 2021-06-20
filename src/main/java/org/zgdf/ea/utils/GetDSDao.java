@@ -15,7 +15,7 @@ public class GetDSDao {
     public GetDSDao() throws NamingException {
         this.ctx = new InitialContext();
         //this.ds = (DataSource) ctx.lookup("java:/appDS");
-        this.ds = (DataSource) ctx.lookup("java:/MunkaidoDB");
+        this.ds = (DataSource) ctx.lookup("java:/MunkaidoDS");
     }
 
     /**
